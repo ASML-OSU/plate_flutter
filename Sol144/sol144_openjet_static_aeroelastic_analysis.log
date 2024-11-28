@@ -1,0 +1,569 @@
+MSC Nastran V2023.3 (Intel Windows 10 Enterprise 6.2 9200) Control File: 
+----------------------------------------------------------------- 
+$ sysfield=SCR*(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[2])
+$ sysfield=DBALL(RAW=YES,BUFFIO=YES,wnum=16,wsize=16mb) $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[3])
+Nastran BUFFSIZE=65537 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[6])
+JID='m:/c_users_wzhao_documents/github/plate_flutter/linear_analysis/sol144_openjet_static_aeroelastic_analysis.bdf'
+OUT='./sol144_openjet_static_aeroelastic_analysis'
+MEM=65390MB      $ 
+PMEM=estimate
+MACH='Intel'
+OPER='Windows 10 Enterprise'
+OSV='6.2 9200'
+MODEL='Intel(R) Core(TM) i9-10940X CP (MAE-WZ-ES332)'
+NPROC='28'
+CONFIG=6
+NPROC=28
+symbol=DELDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/del' $(program default)
+symbol=DEMODIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/demo' $(program default)
+symbol=LM_NO_SNMP=1 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[10])
+symbol=MKL_INTERFACE_LAYER=ILP64 $(c:/msc.software/msc_nastran/2023.3/conf/nast20233.rcf[1])
+symbol=SSSALTERDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/sssalter' $(program default)
+symbol=TPLDIR='c:/msc.software/msc_nastran/2023.3/msc20233/nast/tpl' $(program default)
+SDIR='c:/scratch/sol144_openjet_static_aeroelastic_analysis.T34508_59'
+DBS='c:/scratch/sol144_openjet_static_aeroelastic_analysis.T34508_59'
+SCR='yes'
+SMEM=100
+BPOOL=16347.6MB
+DMPMEM=estimate
+NEWDEL='c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/sss'
+DEL='MSCDEF'
+SPOTWELD=''
+DML=MSCDEF
+SDL=MSCDEF
+AUTH='27500@mae-ls.ad.okstate.edu'
+AUTHQUE=20
+MSGCAT='c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/analysis.msg'
+MSGDEST='f06'
+NEWS='c:/msc.software/msc_nastran/2023.3/msc20233/nast/news.txt'
+----------------------------------------------------------------- 
+MSC_ISHELLPATH=C:\MSC.Software\MSC_Nastran\2023.3\msc20233\actran\win64\Actran_2023.1\bin;C:\MSC.Software\MSC_Nastran\2023.3\msc20233\nast; 
+MSC_JIDPATH= 
+PATH=c:\msc.software\msc_nastran\2023.3\msc20233\win64i8;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\nvidia;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\intel\bin64;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\lib;c:\msc.software\msc_nastran\2023.3\msc20233\win64i8;C:\MSC.Software\Patran_x64\20234\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\bin;C:\Program Files\NVIDIA GPU Computing Toolkit\CUDA\v12.0\libnvvp;C:\gurobi1000\win64\bin;C:\Program Files\MSC.Software\Patran_x64\20221\bin;C:\SIMULIA\Commands;C:\Program Files\Microsoft MPI\Bin\;C:\windows\system32;C:\windows;C:\windows\System32\Wbem;C:\windows\System32\WindowsPowerShell\v1.0\;C:\windows\System32\OpenSSH\;C:\Program Files\MATLAB\R2021a\runtime\win64;C:\Program Files\MATLAB\R2021a\bin;C:\Program Files\MiKTeX\miktex\bin\x64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X64\;C:\Program Files (x86)\Pulse Secure\VC142.CRT\X86\;C:\Program Files (x86)\Wolfram Research\WolframScript\;C:\Program Files\dotnet\;C:\Program Files\MATLAB\MATLAB Runtime\v911\runtime\win64;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\NASTRAN-95\bin;C:\msys64\mingw64\bin;C:\Users\wzhao\AppData\Local\Programs\Python\Python310;C:\Users\wzhao\AppData\Local\Programs\Python\Python310\Scripts;C:\Program Files\nTopology\nTopology\;C:\Program Files\NVIDIA Corporation\Nsight Compute 2022.4.0\;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\bin\Hostx64\x64;C:\Program Files\Wolfram Research\WolframScript\;C:\Program Files (x86)\FreeFem++;C:\tomlab\shared;C:\Program Files\PuTTY\;C:\Program Files\Git\cmd;C:\ZAERODemo\;C:\Users\wzhao\AppData\Local\Microsoft\WindowsApps;C:\Program Files (x86)\SSH Communications Security\SSH Secure Shell;C:\ProgramData\wzhao\GitHubDesktop\bin;C:\Users\wzhao\AppData\Local\GitHubDesktop\bin;C:\Users\wzhao\AppData\Local\gitkraken\bin;C:\NASTRAN-95\bin;C:\Users\wzhao\AppData\Local\Programs\Microsoft VS Code\bin;C:\msys64\mingw64\bin;C:\Users\wzhao\AppData\Local\Programs\Python\Python310\Scripts;C:\Users\wzhao\AppData\Local\Programs\Python\Python310;C:\Users\wzhao\AppData\Local\Pandoc\;C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.34.31933\bin\Hostx64\x64;C:\Users\wzhao\Documents\calculX\CL32-win32bit\CL32-win32\bin\cgx25;C:\Users\wzhao\.dotnet\tools 
+SCA_SERVICE_CATALOG=c:\msc.software\msc_nastran\2023.3\msc20233\res\SCAServiceCatalog.xml 
+SCA_RESOURCE_DIR=c:\msc.software\msc_nastran\2023.3\msc20233\res 
+Cmd Line:    C:\MSC.Software\MSC_Nastran\2023.3\msc20233\win64i8\nastran.exe JID=M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis\SOL144_openjet_static_aeroelastic_analysis.bdf 
+Current Dir: M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis 
+Time Cmd:    c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\msctime 
+Executable:  c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\analysis.exe 
+Arch= Kywd:  [Not specified]  
+MSC_MSG:     stderr  
+FPE:         yes  
+----------------------------------------------------------------- 
+Current resource limits:
+ Physical memory:                   130781 MB
+ Physical memory available:          74528 MB
+ Paging file size:                  341391 MB
+ Paging file size available:        238247 MB
+ Virtual memory:                 134217727 MB
+ Virtual memory available:       134213509 MB
+----------------------------------------------------------------- 
+System configuration:
+ Hostname:         MAE-WZ-ES332.ad.okstate.edu
+ Architecture:     win64i8
+ Platform:         Intel Windows 10 Enterprise 6.2 9200 (Windows Compute Cluster)
+ Model:            Intel(R) Core(TM) i9-10940X CP
+ Clock freq.:      1074 MHz
+ Number of CPUs:   28
+ Number of CPUs:   0 ( limited by PBS )
+ Executable:       standard
+ Raw model ID:     6
+ Config number:    6
+ Physical memory:  130781 MB
+ Virtual memory:   341391 MB
+ Numeric format:   64-bit little-endian IEEE.
+ Bytes per word:   8
+ Disk block size:  512 bytes (64 words)
+ Remote shell cmd: "c:/msc.software/msc_nastran/2023.3/msc20233/win64i8/mscrmtcmd.exe" (Windows non-CCS nodes, UNIX)
+                   <ccs_cmd> (Windows CCS nodes)
+----------------------------------------------------------------- 
+MSC Nastran started  Thu Nov 28 13:11:04 CST 2024 
+ 13:11:08  Beginning Analysis
+SCA Kernel 29.0.926180 successfully initialized
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\libimalloc.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_core.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_intel_thread.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\mkl_rt.2.dll" has been loaded.
+BLAS/LAPACK .dll "c:\msc.software\msc_nastran\2023.3\msc20233\win64i8\MSCblas.dll" has been loaded.
+
+ 13:11:12  MSC Authorization Information - System Attributes (1004, 0)
+ 13:11:12  -----------------------------------------------------------
+  Date:          Thu Nov 28 13:11:12 2024
+  MSC Id:        b04f13058cf3 (ethernet) (Intel)
+  Hostname:      MAE-WZ-ES332 (user wzhao, display DESKTOP-5N3MPNL)
+  License files: 27500@mae-ls.ad.okstate.edu
+  CEID:          5DC66406-94B5C672
+  User:          wzhao
+  Display:       DESKTOP-5N3MPNL
+  LAPI Version:  LAPI 11.0.1 (CL 920189) (FLEXlm 11.16.3.0)
+
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+  * *                                 * *
+  * *   MSC Customer Entitlement ID   * *
+  * *        5DC66406-94B5C672        * *
+  * *                                 * *
+  * * * * * * * * * * * * * * * * * * * *
+  * * * * * * * * * * * * * * * * * * * *
+
+ 13:11:12  MSC Authorization Information - Checkout Successful (1016, 0)
+ 13:11:12  -------------------------------------------------------------
+ 13:11:12  Acquired 1 license for MSC Nastran from license server on host mae-ls.ad.okstate.edu
+
+
+ 13:11:12  MSC Authorization Information - Checkout Successful (1016, 0)
+ 13:11:12  -------------------------------------------------------------
+ 13:11:12  Acquired 1 license for MSC Nastran Aero - Basic from license server on host mae-ls.ad.okstate.edu
+
+
+Beginning bulk data processing using the IFPStar component.
+For more information on IFPStar, please see KB article KB8019200
+on our support pages, at http://simcompanion.hexagon.com.
+
+ 13:11:13  Reading INCLUDE file "M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis\platedowellopenjet.dat"
+ 13:11:13  475 records read from INCLUDE file "M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis\platedowellopenjet.dat"
+ 13:11:13  247 records read from JID file "m:/c_users_wzhao_documents/github/plate_flutter/linear_analysis/sol144_openjet_static_aeroelastic_analysis.bdf"
+ 13:11:13  A total of 722 records were read from 2 files.
+
+Processing of bulk data entries is complete.
+
+       recMKAERO2[  0]= -1717986918
+       recMKAERO2[  1]= -755914244
+       recMKAERO2[  2]= -1717986918
+       recMKAERO2[  3]= -755914244
+       recMKAERO2[  4]= -1717986918
+       recMKAERO2[  5]= -1133871366
+       recMKAERO2[  6]= -1717986918
+       recMKAERO2[  7]= -755914244
+       recMKAERO2[  8]= -1717986918
+       recMKAERO2[  9]= 1202590843
+       recMKAERO2[ 10]= -1717986918
+       recMKAERO2[ 11]= -1133871366
+       recMKAERO2[ 12]= -1717986918
+       recMKAERO2[ 13]= 824633721
+       recMKAERO2[ 14]= -1717986918
+       recMKAERO2[ 15]= -755914244
+       recMKAERO2[ 16]= -1717986918
+       recMKAERO2[ 17]= -1924145349
+       recMKAERO2[ 18]= -1717986918
+       recMKAERO2[ 19]= 1202590843
+       recMKAERO2[ 20]= -1717986918
+       recMKAERO2[ 21]= 34359738
+       recMKAERO2[ 22]= -1717986918
+       recMKAERO2[ 23]= -1133871366
+       recMKAERO2[ 24]= -1717986918
+       recMKAERO2[ 25]= 1992864825
+       recMKAERO2[ 26]= -1717986918
+       recMKAERO2[ 27]= 824633721
+       recMKAERO2[ 28]= -1717986918
+       recMKAERO2[ 29]= -343597384
+       recMKAERO2[ 30]= -1717986918
+       recMKAERO2[ 31]= -755914244
+       recMKAERO2[ 32]= -1717986918
+       recMKAERO2[ 33]= -1340029796
+       recMKAERO2[ 34]= -1717986918
+       recMKAERO2[ 35]= -1924145349
+       recMKAERO2[ 36]= -1717986918
+       recMKAERO2[ 37]= 1786706395
+       recMKAERO2[ 38]= -1717986918
+       recMKAERO2[ 39]= 1202590843
+       recMKAERO2[ 40]= -1717986918
+       recMKAERO2[ 41]= 618475291
+       recMKAERO2[ 42]= -1717986918
+       recMKAERO2[ 43]= 34359738
+       recMKAERO2[ 44]= -1717986918
+       recMKAERO2[ 45]= -549755814
+       recMKAERO2[ 46]= -1717986918
+       recMKAERO2[ 47]= -1133871366
+       recMKAERO2[ 48]= -1717986918
+       recMKAERO2[ 49]= -1717986918
+       recMKAERO2[ 50]= -1717986918
+       recMKAERO2[ 51]= 1992864825
+       recMKAERO2[ 52]= -1717986918
+       recMKAERO2[ 53]= 1408749273
+       recMKAERO2[ 54]= -1717986918
+       recMKAERO2[ 55]= 824633721
+       recMKAERO2[ 56]= -1717986918
+       recMKAERO2[ 57]= 240518169
+       recMKAERO2[ 58]= -1717986918
+       recMKAERO2[ 59]= -343597384
+       recMKAERO2[ 60]= -1717986918
+       recMKAERO2[ 61]= -927712936
+       recMKAERO2[ 62]= -1717986918
+       recMKAERO2[ 63]= -755914244
+       recMKAERO2[ 64]= -1717986918
+       recMKAERO2[ 65]= 1099511628
+       recMKAERO2[ 66]= -1717986918
+       recMKAERO2[ 67]= -1340029796
+       recMKAERO2[ 68]= -1717986918
+       recMKAERO2[ 69]= 515396076
+       recMKAERO2[ 70]= -1717986918
+       recMKAERO2[ 71]= -1924145349
+       recMKAERO2[ 72]= -1717986918
+       recMKAERO2[ 73]= -68719477
+       recMKAERO2[ 74]= -1717986918
+       recMKAERO2[ 75]= 1786706395
+       recMKAERO2[ 76]= -1717986918
+       recMKAERO2[ 77]= -652835029
+       recMKAERO2[ 78]= -1717986918
+       recMKAERO2[ 79]= 1202590843
+       recMKAERO2[ 80]= -1717986918
+       recMKAERO2[ 81]= -1236950581
+       recMKAERO2[ 82]= -1717986918
+       recMKAERO2[ 83]= 618475291
+       recMKAERO2[ 84]= -1717986918
+       recMKAERO2[ 85]= -1821066134
+       recMKAERO2[ 86]= -1717986918
+       recMKAERO2[ 87]= 34359738
+       recMKAERO2[ 88]= -1717986918
+       recMKAERO2[ 89]= 1889785610
+       recMKAERO2[ 90]= -1717986918
+       recMKAERO2[ 91]= -549755814
+       recMKAERO2[ 92]= -1717986918
+       recMKAERO2[ 93]= 1305670058
+       recMKAERO2[ 94]= -1717986918
+       recMKAERO2[ 95]= -1133871366
+       recMKAERO2[ 96]= -1717986918
+       recMKAERO2[ 97]= 721554506
+       recMKAERO2[ 98]= -1717986918
+       recMKAERO2[ 99]= -1717986918
+       recMKAERO2[100]= -1717986918
+       recMKAERO2[101]= 137438953
+       recMKAERO2[102]= -1717986918
+       recMKAERO2[103]= 1992864825
+       recMKAERO2[104]= -1717986918
+       recMKAERO2[105]= -446676599
+       recMKAERO2[106]= -1717986918
+       recMKAERO2[107]= 1408749273
+       recMKAERO2[108]= -1717986918
+       recMKAERO2[109]= -1030792151
+       recMKAERO2[110]= -1717986918
+       recMKAERO2[111]= 824633721
+       recMKAERO2[112]= -1717986918
+       recMKAERO2[113]= -1614907703
+       recMKAERO2[114]= -1717986918
+       recMKAERO2[115]= 240518169
+       recMKAERO2[116]= -1717986918
+       recMKAERO2[117]= 2095944040
+       recMKAERO2[118]= -1717986918
+       recMKAERO2[119]= -343597384
+       recMKAERO2[120]= -1717986918
+       recMKAERO2[121]= 1511828488
+       recMKAERO2[122]= -1717986918
+       recMKAERO2[123]= -927712936
+       recMKAERO2[124]= -1717986918
+       recMKAERO2[125]= -1683627180
+       recMKAERO2[126]= -1717986918
+       recMKAERO2[127]= -755914244
+       recMKAERO2[128]= -1717986918
+       recMKAERO2[129]= 171798692
+       recMKAERO2[130]= -1717986918
+       recMKAERO2[131]= 1099511628
+       recMKAERO2[132]= -1717986918
+       recMKAERO2[133]= 2027224564
+       recMKAERO2[134]= -1717986918
+       recMKAERO2[135]= -1340029796
+       recMKAERO2[136]= -1717986918
+       recMKAERO2[137]= -412316860
+       recMKAERO2[138]= -1717986918
+       recMKAERO2[139]= 515396076
+       recMKAERO2[140]= -1717986918
+       recMKAERO2[141]= 1443109011
+       recMKAERO2[142]= -1717986918
+       recMKAERO2[143]= -1924145349
+       recMKAERO2[144]= -1717986918
+       recMKAERO2[145]= -996432413
+       recMKAERO2[146]= -1717986918
+       recMKAERO2[147]= -68719477
+       recMKAERO2[148]= -1717986918
+       recMKAERO2[149]= 858993459
+       recMKAERO2[150]= -1717986918
+       recMKAERO2[151]= 1786706395
+       recMKAERO2[152]= -1717986918
+       recMKAERO2[153]= -1580547965
+       recMKAERO2[154]= -1717986918
+       recMKAERO2[155]= -652835029
+       recMKAERO2[156]= -1717986918
+       recMKAERO2[157]= 274877907
+       recMKAERO2[158]= -1717986918
+       recMKAERO2[159]= 1202590843
+       recMKAERO2[160]= -1717986918
+       recMKAERO2[161]= 2130303779
+       recMKAERO2[162]= -1717986918
+       recMKAERO2[163]= -1236950581
+       recMKAERO2[164]= -1717986918
+       recMKAERO2[165]= -309237645
+       recMKAERO2[166]= -1717986918
+       recMKAERO2[167]= 618475291
+       recMKAERO2[168]= -1717986918
+       recMKAERO2[169]= 1546188227
+       recMKAERO2[170]= -1717986918
+       recMKAERO2[171]= -1821066134
+       recMKAERO2[172]= -1717986918
+       recMKAERO2[173]= -893353198
+       recMKAERO2[174]= -1717986918
+       recMKAERO2[175]= 34359738
+       recMKAERO2[176]= -1717986918
+       recMKAERO2[177]= 962072674
+       recMKAERO2[178]= -1717986918
+       recMKAERO2[179]= 1889785610
+       recMKAERO2[180]= -1717986918
+       recMKAERO2[181]= -1477468750
+       recMKAERO2[182]= -1717986918
+       recMKAERO2[183]= -549755814
+       recMKAERO2[184]= -1717986918
+       recMKAERO2[185]= 377957122
+       recMKAERO2[186]= -1717986918
+       recMKAERO2[187]= 1305670058
+       recMKAERO2[188]= -1717986918
+       recMKAERO2[189]= -2061584302
+       recMKAERO2[190]= -1717986918
+       recMKAERO2[191]= -1133871366
+       recMKAERO2[192]= -1717986918
+       recMKAERO2[193]= -206158430
+       recMKAERO2[194]= -1717986918
+       recMKAERO2[195]= 721554506
+       recMKAERO2[196]= -1717986918
+       recMKAERO2[197]= 1649267442
+       recMKAERO2[198]= -1717986918
+       recMKAERO2[199]= -1717986918
+       recMKAERO2[200]= -1717986918
+       recMKAERO2[201]= -790273982
+       recMKAERO2[202]= -1717986918
+       recMKAERO2[203]= 137438953
+       recMKAERO2[204]= -1717986918
+       recMKAERO2[205]= 1065151889
+       recMKAERO2[206]= -1717986918
+       recMKAERO2[207]= 1992864825
+       recMKAERO2[208]= -1717986918
+       recMKAERO2[209]= -1374389535
+       recMKAERO2[210]= -1717986918
+       recMKAERO2[211]= -446676599
+       recMKAERO2[212]= -1717986918
+       recMKAERO2[213]= 481036337
+       recMKAERO2[214]= -1717986918
+       recMKAERO2[215]= 1408749273
+       recMKAERO2[216]= -1717986918
+       recMKAERO2[217]= -1958505087
+       recMKAERO2[218]= -1717986918
+       recMKAERO2[219]= -1030792151
+       recMKAERO2[220]= -1717986918
+       recMKAERO2[221]= -103079215
+       recMKAERO2[222]= -1717986918
+       recMKAERO2[223]= 824633721
+       recMKAERO2[224]= -1717986918
+       recMKAERO2[225]= 1752346657
+       recMKAERO2[226]= -1717986918
+       recMKAERO2[227]= -1614907703
+       recMKAERO2[228]= -1717986918
+       recMKAERO2[229]= -687194767
+       recMKAERO2[230]= -1717986918
+       recMKAERO2[231]= 240518169
+       recMKAERO2[232]= -1717986918
+       recMKAERO2[233]= 1168231105
+       recMKAERO2[234]= -1717986918
+       recMKAERO2[235]= 2095944040
+       recMKAERO2[236]= -1717986918
+       recMKAERO2[237]= -1271310320
+       recMKAERO2[238]= -1717986918
+       recMKAERO2[239]= -343597384
+       recMKAERO2[240]= -1717986918
+       recMKAERO2[241]= 584115552
+       recMKAERO2[242]= -1717986918
+       recMKAERO2[243]= 1511828488
+       recMKAERO2[244]= -1717986918
+       recMKAERO2[245]= -1855425872
+       recMKAERO2[246]= -1717986918
+       recMKAERO2[247]= -927712936
+       recMKAERO2[248]= -1717986918
+       recMKAERO2[249]= 0
+       recMKAERO2[250]= -1717986918
+       recMKAERO2[251]= -1683627180
+       recMKAERO2[252]= -1717986918
+       recMKAERO2[253]= 927712936
+       recMKAERO2[254]= -1717986918
+       recMKAERO2[255]= -755914244
+       recMKAERO2[256]= -1717986918
+       recMKAERO2[257]= 1855425872
+       recMKAERO2[258]= -1717986918
+       recMKAERO2[259]= 171798692
+       recMKAERO2[260]= -1717986918
+       recMKAERO2[261]= -1511828488
+       recMKAERO2[262]= -1717986918
+       recMKAERO2[263]= 1099511628
+       recMKAERO2[264]= -1717986918
+       recMKAERO2[265]= -584115552
+       recMKAERO2[266]= -1717986918
+       recMKAERO2[267]= 2027224564
+       recMKAERO2[268]= -1717986918
+       recMKAERO2[269]= 343597384
+       recMKAERO2[270]= -1717986918
+       recMKAERO2[271]= -1340029796
+       recMKAERO2[272]= -1717986918
+       recMKAERO2[273]= 1271310320
+       recMKAERO2[274]= -1717986918
+       recMKAERO2[275]= -412316860
+       recMKAERO2[276]= -1717986918
+       recMKAERO2[277]= -2095944040
+       recMKAERO2[278]= -1717986918
+       recMKAERO2[279]= 515396076
+       recMKAERO2[280]= -1717986918
+       recMKAERO2[281]= -1168231105
+       recMKAERO2[282]= -1717986918
+       recMKAERO2[283]= 1443109011
+       recMKAERO2[284]= -1717986918
+       recMKAERO2[285]= -240518169
+       recMKAERO2[286]= -1717986918
+       recMKAERO2[287]= -1924145349
+       recMKAERO2[288]= -1717986918
+       recMKAERO2[289]= 687194767
+       recMKAERO2[290]= -1717986918
+       recMKAERO2[291]= -996432413
+       recMKAERO2[292]= -1717986918
+       recMKAERO2[293]= 1614907703
+       recMKAERO2[294]= -1717986918
+       recMKAERO2[295]= -68719477
+       recMKAERO2[296]= -1717986918
+       recMKAERO2[297]= -1752346657
+       recMKAERO2[298]= -1717986918
+       recMKAERO2[299]= 858993459
+       recMKAERO2[300]= -1717986918
+       recMKAERO2[301]= -824633721
+       recMKAERO2[302]= -1717986918
+       recMKAERO2[303]= 1786706395
+       recMKAERO2[304]= -1717986918
+       recMKAERO2[305]= 103079215
+       recMKAERO2[306]= -1717986918
+       recMKAERO2[307]= -1580547965
+       recMKAERO2[308]= -1717986918
+       recMKAERO2[309]= 1030792151
+       recMKAERO2[310]= -1717986918
+       recMKAERO2[311]= -652835029
+       recMKAERO2[312]= -1717986918
+       recMKAERO2[313]= 1958505087
+       recMKAERO2[314]= -1717986918
+       recMKAERO2[315]= 274877907
+       recMKAERO2[316]= -1717986918
+       recMKAERO2[317]= -1408749273
+       recMKAERO2[318]= -1717986918
+       recMKAERO2[319]= 1202590843
+       recMKAERO2[320]= -1717986918
+       recMKAERO2[321]= -481036337
+       recMKAERO2[322]= -1717986918
+       recMKAERO2[323]= 2130303779
+       recMKAERO2[324]= -1717986918
+       recMKAERO2[325]= 446676599
+       recMKAERO2[326]= -1717986918
+       recMKAERO2[327]= -1236950581
+       recMKAERO2[328]= -1717986918
+       recMKAERO2[329]= 1374389535
+       recMKAERO2[330]= -1717986918
+       recMKAERO2[331]= -309237645
+       recMKAERO2[332]= -1717986918
+       recMKAERO2[333]= -1992864825
+       recMKAERO2[334]= -1717986918
+       recMKAERO2[335]= 618475291
+       recMKAERO2[336]= -1717986918
+       recMKAERO2[337]= -1065151889
+       recMKAERO2[338]= -1717986918
+       recMKAERO2[339]= 1546188227
+       recMKAERO2[340]= -1717986918
+       recMKAERO2[341]= -137438953
+       recMKAERO2[342]= -1717986918
+       recMKAERO2[343]= -1821066134
+       recMKAERO2[344]= -1717986918
+       recMKAERO2[345]= 790273982
+       recMKAERO2[346]= -1717986918
+       recMKAERO2[347]= -893353198
+       recMKAERO2[348]= -1717986918
+       recMKAERO2[349]= 1717986918
+       recMKAERO2[350]= -1717986918
+       recMKAERO2[351]= 34359738
+       recMKAERO2[352]= -1717986918
+       recMKAERO2[353]= -1649267442
+       recMKAERO2[354]= -1717986918
+       recMKAERO2[355]= 962072674
+       recMKAERO2[356]= -1717986918
+       recMKAERO2[357]= -721554506
+       recMKAERO2[358]= -1717986918
+       recMKAERO2[359]= 1889785610
+       recMKAERO2[360]= -1717986918
+       recMKAERO2[361]= 206158430
+       recMKAERO2[362]= -1717986918
+       recMKAERO2[363]= -1477468750
+       recMKAERO2[364]= -1717986918
+       recMKAERO2[365]= 1133871366
+       recMKAERO2[366]= -1717986918
+       recMKAERO2[367]= -549755814
+       recMKAERO2[368]= -1717986918
+       recMKAERO2[369]= 2061584302
+       recMKAERO2[370]= -1717986918
+       recMKAERO2[371]= 377957122
+       recMKAERO2[372]= -1717986918
+       recMKAERO2[373]= -1305670058
+       recMKAERO2[374]= -1717986918
+       recMKAERO2[375]= 1305670058
+       recMKAERO2[376]= -1717986918
+       recMKAERO2[377]= -377957122
+       recMKAERO2[378]= -1717986918
+       recMKAERO2[379]= -2061584302
+       recMKAERO2[380]= -1717986918
+       recMKAERO2[381]= 549755814
+       recMKAERO2[382]= -1717986918
+       recMKAERO2[383]= -1133871366
+       recMKAERO2[384]= -1717986918
+       recMKAERO2[385]= 1477468750
+       recMKAERO2[386]= -1717986918
+       recMKAERO2[387]= -206158430
+       recMKAERO2[388]= -1717986918
+       recMKAERO2[389]= -1889785610
+       recMKAERO2[390]= -1717986918
+       recMKAERO2[391]= 721554506
+       recMKAERO2[392]= -1717986918
+       recMKAERO2[393]= -962072674
+       recMKAERO2[394]= -1717986918
+       recMKAERO2[395]= 1649267442
+       recMKAERO2[396]= -1717986918
+       recMKAERO2[397]= -34359738
+       recMKAERO2[398]= -1717986918
+       recMKAERO2[399]= -1717986918
+ 13:11:14  Finite element model generation started.
+ 13:11:14  Finite element model generated 1386 degrees of freedom.
+ 13:11:14  Finite element model generation successfully completed.
+ 13:11:14  Application of Loads and Boundary Conditions to the finite element model started.
+ 13:11:14  Application of Loads and Boundary Conditions to the finite element model successfully completed.
+ ================================================== 
+ Warning/Fatal Message Summary           Occurrence
+         USER FATAL MESSAGE     1250.0          1 
+         USER FATAL MESSAGE     1250.2          2 
+     SYSTEM WARNING MESSAGE     6066.0          2 
+         USER FATAL MESSAGE     1250.0          1 
+ ================================================== 
+ 13:11:15  18 records read from JID file "m:/c_users_wzhao_documents/github/plate_flutter/linear_analysis/sol144_openjet_static_aeroelastic_analysis.bdf"
+ 13:11:15  NSEXIT: EXIT(0)
+ 13:11:15  Analysis complete  0
+Real:        7.888 seconds ( 0:00:07.888)
+User:        1.671 seconds ( 0:00:01.671)
+Sys:         1.046 seconds ( 0:00:01.046)
+ ==================================================
+ OS:                           6.2
+ OEM ID:                       9
+ Model:                        Intel(R) Core(TM) i9-10940X CPU @ 3.30GHz  
+ Number of processors:         28
+ Page size:                    4096
+ Processor type:               8664
+ Minimum application address:  10000
+ Maximum application address:  fffeffff
+ Active processor mask:        268435455
+ Nsocket:                      1
+ Ncore:                        14  ( 1 X 14 )
+ HyperThreading:               On
+ Ram:                          130781 Mb
+ ==================================================
+ Time Summary                 CPU       Wall   ( Time in Seconds )
+ Consider using SOLVE=AUTO if you have not.
+ =====================================================
+ Detailed performance information can be found in the 
+ "MSC Nastran High Performance Computing User's Guide"
+ =====================================================
+MSC Nastran finished Thu Nov 28 13:11:16 CST 2024 

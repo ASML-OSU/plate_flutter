@@ -1,0 +1,316 @@
+$ DEC/CMS REPLACEMENT HISTORY, Element HA145E.DAT
+$ *2     6-JUL-1994 14:09:16 A_BOYADJIAN "68 PLUS/G/ CHANGE DBSDIR: TO  FOR INCLUDE CARDS"
+$ *1     5-JUL-1994 16:56:54 A_BOYADJIAN "68 PLUS/G/ NEW FOR V68 AERO_SS BOOK"
+$ DEC/CMS REPLACEMENT HISTORY, Element HA145E.DAT
+ID MSC, HA145E $ E_JOHNSON V68  5-JUL-1994
+$ID MSC, HA145E
+$$$$$$$$ HANDBOOK FOR AEROELASTIC ANALYSIS EXAMPLE HA145E       $$$$$$$$
+$                                                                      $
+$       MODEL DESCRIPTION       MODEL A OF NASA TN D-1824              $
+$                               HALF SPAN 15 DEGREE SWEPT WING         $
+$                               28 QUAD4 PANEL MODEL                   $
+$                                                                      $
+$       SOLUTION                KE FLUTTER ANALYSIS METHOD             $
+$                               USING DOUBLET LATTICE METHOD           $
+$                               AERODYNAMICS AT MACH NO. 0.45          $
+$                                                                      $
+$       OUTPUT                  PLOTS OF VIBRATION MODES AND X-Y       $
+$                               PLOTS OF V-G FLUTTER DATA              $
+$                                                                      $
+$$$$$$$$                                                        $$$$$$$$
+SOL 103  $ FLUTTER ANALYSIS
+CEND
+TITLE = EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E
+$SUBT  = KE-METHOD FLUTTER ANALYSIS, DOUBLET-LATTICE AERO
+$LABEL = 0.041 IN AL PLATE W/BEVELLED LEADING AND TRAILING EDGES
+  ECHO    = BOTH
+  SPC     = 2   $ WING ROOT DEFLECTIONS AND PLATE IN-PLANE ROTATIONS FIXED
+  SDAMPING   = 2000
+  METHOD  = 10  $ MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION
+  FMETHOD = 30  $ PK-FLUTTER METHOD
+  SVEC    = ALL $ PRINT VIBRATION MODES
+  VECTOR = ALL
+BEGIN BULK
+MDLPRM   HDF5    0
+PARAM    POST    0
+PARAM   PRTMAXIM YES
+$*** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ***$
+$                                                                       $
+$        THE ANNOTATIONS IN THIS INPUT DECK ARE INTENDED TO             $
+$        EXPLAIN THE DATA ON THE CARD IMAGES FOR THIS                   $
+$        EXAMPLE WITHOUT REFERENCE TO THE VARIOUS MANUALS WHERE         $
+$        MORE GENERAL DESCRIPTIONS WILL BE FOUND.                       $
+$                                                                       $
+$*** * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * ***$
+$                                                                       $
+INCLUDE 'platedowellopenjet.dat'
+
+$ Elements and Element Properties for region : pointmass
+$CONM2    201     231     0      .0044093 0.      0.      0.
+$CONM2    202     221     0      .0044093 0.      0.      0.
+$
+$                 * * MASS AND INERTIA PROPERTIES * *                   $
+$                                                                       $
+$        THE MAT1 ENTRY DEFINES THE MATERIAL PROPERTIES FOR LINEAR,     $
+$        TEMPERATURE-INDEPENDENT, ISOTROPIC MATERIALS.  IT LISTS        $
+$        YOUNGS MODULUS, THE SHEAR MODULUS, POISSONS RATIO, MASS        $
+$        DENSITY, THERMAL EXPANSION COEFFICIENT AND STRUCTURAL          $
+$        ELEMENT DAMPING.                                               $
+$                                                                       $
+$       MID     E       G       NU      RHO     A       TREF    GE
+MAT1    1       9.2418+63.4993+6        0.097464
+$
+$        PARAM GRDPNT CAUSES THE INERTIAL MATRIX TO BE GENERATED WITH   $
+$        RESPECT TO COORDINATES THROUGH THE GRID POINT SPECIFIED.       $
+$
+PARAM    GRDPNT  0
+$                                                                       $
+$                    * * STRUCTURAL CONSTRAINTS * *                     $
+$                                                                       $
+$        THE SPC1 ENTRY DEFINES SETS OF SINGLE-POINT CONSTRAINTS.       $
+$        IT LISTS THE DOF COMPONENTS TO BE CONSTRAINED AND THE GRID     $
+$        POINT NO.                                                      $
+$                                                                       $
+$       SID     C       G1      G2      ETC                             $
+$ Loads for Load Case : DEFAULT.SC1
+SPCADD   2       1
+$ Displacement Constraints of Load Set : cantilever
+SPC1     1       123456  1       THRU    11
+$                                                                       $
+$                      *  STRUCTURAL DAMPING *                          $
+$                                                                       $
+$        THE PARAMETER KDAMP DETERMINES THE MANNER OF INCLUDING         $
+$        STRUCTURAL DAMPING IN THE EQUATIONS OF MOTION (SEE THE         $
+$        HANDBOOK FOR DYNAMIC ANALYSIS, SECTION 3.2.2).  IF SET TO      $
+$        -1, MODAL STRUCTURAL DAMPING IS INCLUDED AS THE IMAGINARY      $
+$        PART OF A COMPLEX STIFFNESS MATRIX.                            $
+$                                                                       $
+$       N       V1      V2                                              $
+PARAM   KDAMP   +1
+$                                                                       $
+$        THE TABDMP1 ENTRY AND TABLE DEFINE MODAL DAMPING AS A          $
+$        TABULAR FUNCTION OF FREQUENCY.  THE DAMPING VALUES ARE         $
+$        LINEAR BETWEEN THE FREQUENCY AND DAMPING PAIRS AND ARE         $
+$        EXTRAPOLATED OUTSIDE THE TABULATED FREQUENCY RANGE.            $
+$                                                                       $
+$       ID                                                              +TDP
+TABDMP1	2000
+	0.0     .016    4.7     .016    16.9    .020    27.8    .008        
+	10000.0 .008    ENDT
+$                                                                       $
+$                    * * * AERODYNAMIC DATA * * *                       $
+$                                                                       $
+$                        (LB-IN-SEC SYSTEM)                             $
+$                                                                       $
+$                       * * ELEMENT GEOMETRY * *                        $
+$                                                                       $
+$        THE AERO ENTRY SPECIFIES THE AERO COORDINATE SYSTEM, THE       $
+$        VELOCITY (USED FOR DATA RECOVERY), THE REFERENCE CHORD         $
+$        AND FLUID DENSITY, PLUS SYMMETRY KEYS.  SYMXZ=0 INDICATES      $
+$        THAT THE MODEL IS MOUNTED AS AN ISOLATED WING; SYMXY = 0       $
+$        ASSUMES THAT THE MODEL IS MOUNTED FAR ENOUGH FROM THE          $
+$        FLOOR SO THAT REFLECTION EFFECTS ARE NEGLIGIBLE.               $
+$                                                                       $
+$       ACSID   VELOCITY REFC   RHOREF  SYMXZ   SYMXY
+AERO    0               5.9400  1.1092-7 1
+$                                                                       $
+$        THE CAERO1 ENTRY IS USED FOR DOUBLET-LATTICE AERODYNAMICS.     $
+$        LISTED ARE ITS PAERO ENTRY ID AND THE COORDINATE SYSTEM        $
+$        FOR LOCATING THE INBOARD AND OUTBOARD LEADING EDGE POINTS      $
+$        (1 AND 4).  NSPAN AND NCHORD, OR LSPAN AND LCHORD, ARE         $
+$        USED TO PARTITION THE WING INTO AERODYNAMIC PANELS.            $
+$        THE FORMER FOR UNIFORMLY SPACED PANELS AND THE LATTER          $
+$        FOR NON-UNIFORM SPACING.  IGID IS THE ID OF ITS ASSOCIATED     $
+$        INTERFERENCE GROUP.  THE CONTINUATION ENTRY DEFINES POINTS     $
+$        1 AND 4, THE ROOT CHORD AND TIP CHORD.  THE BOXES FORMED       $
+$        BY THE GRID LINES WILL BE NUMBERED BEGINNING WITH EID          $
+$        SO CHOOSE A NUMBER THAT IS UNIQUE, AND IS GREATER THAN ALL     $
+$        STRUCTURAL GRID, SCALAR AND EXTRA POINT IDS.                   $
+$                                                                       $
+$       EID     PID     CP      NSPAN   NCHORD  LSPAN   LCHORD  IGID
+CAERO1  1001    1       0       36      24                      1       +CA101
+$      ( FWD LEFT POINT  )   ROOTCHORD ( FWD RIGHT POINT  )  TIP CHORD
+$       X1      Y1      Z1      X12     X4        Y4    Z4      X14
++CA101  .0      .0      .0      5.94000  0.0000  10.830 0.0     5.94000
+$                                                                       $
+$        THE PAERO1 ENTRY IS REQUIRED EVEN THOUGH IT IS NON-FUNCTIONAL  $
+$        (BECAUSE THERE ARE NO ASSOCIATED BODIES IN THIS EXAMPLE).      $
+$                                                                       $
+$       PID     B1      B2      B3      B4      B5      B6
+PAERO1  1
+$                                                                       $
+$              * * SPLINE FIT ON THE LIFTING SURFACES * *               $
+$                                                                       $
+$                  * SURFACE SPLINE FIT ON THE WING *                   $
+$
+$        THE SPLINE1 ENTRY DEFINES A SURFACE SPLINE FOR INTERPO-        $
+$        LATING OUT-OF-PLANE DISPLACEMENTS FROM THE STRUCTURAL          $
+$        GRID POINTS ON THE SETG ENTRY TO THE SUB-REGION DEFINED        $
+$        BY AERODYNAMIC BOXES 101 THRU 124 OF THE REGION ON THE         $
+$        CAERO1 ENTRY.  DZ=0 SPECIFIES THAT NO SMOOTHING OF THE         $
+$        SPLINE IS TO BE IMPOSED.                                       $
+$                                                                       $
+$       EID     CAERO   BOX1    BOX2    SETG    DZ                      $
+SPLINE1 100     1001    1001    1864    100     .0
+$                                                                       $
+$        THE SET1 ENTRY DEFINES THE SET OF POINTS TO BE USED BY         $
+$        THE SURFACE SPLINE FOR INTERPOLATION.                          $
+$                                                                       $
+$       SID     G1      G2      G3      G4      ETC
+SET1    100     209     THRU    215     1       THRU    9               +S1
++S1     18      27      36      45      54      63      72      81      +S2
++S2     90      99      108     117     126     135     144     153     +S3
++S3     162     171     180     189     198     207     216     10      +S4
++S4     19      28      37      46      55      64      73      82      +S5
++S5     91      100     109     118     127     136     145     154     +S6
++S6     163     172     181     190     199     208     206     12      +S7
++S7     16      14      30      32      34      38      40      42      +S8
++S8     44      47      49      51      53      56      58      60      +S9
++S9     62      65      67      69      71      74      76      78      +S10
++S10    80      83      85      87      89      92      94      96      +S11
++S11    98      101     103     105     107     110     112     114     +S12
++S12    116     119     121     123     125     128     130     132     +S13
++S13    134     137     139     141     143     146     148     150     +S14
++S14    152     155     157     159     161     164     166     168     +S15
++S15    170     173     175     177     179     182     184     186     +S16
++S16    188     191     193     195     197     200     202     204        
+$                                                                       $
+$                      * * AERODYNAMIC DATABASE * *                     $
+$                                                                       $
+$        ALL COMBINATIONS OF MACH NUMBER AND REDUCED FREQUENCY LISTED   $
+$        ON THE MKAERO1 ENTRY AND ITS CONTINUATION ENTRY WILL BE USED   $
+$        TO GENERATE GENERALIZED AERO FORCE MATRICES.                   $
+$                                                                       $
+$        M1     M2      M3      ETC
+$MKAERO1 0.45                                                            +MK
+$        K1     K2      K3      ETC
+$+MK     .001    0.10    0.12    0.125   0.14    0.16    0.20
+MKAERO2 0.1000  0.0010  0.1000  0.0020  0.1000  0.0030  0.1000  0.0040
+MKAERO2 0.1000  0.0050  0.1000  0.0060  0.1000  0.0070  0.1000  0.0080
+MKAERO2 0.1000  0.0090  0.1000  0.0100  0.1000  0.0110  0.1000  0.0120
+MKAERO2 0.1000  0.0130  0.1000  0.0140  0.1000  0.0150  0.1000  0.0160
+MKAERO2 0.1000  0.0170  0.1000  0.0180  0.1000  0.0190  0.1000  0.0200
+MKAERO2 0.1000  0.0210  0.1000  0.0220  0.1000  0.0230  0.1000  0.0240
+MKAERO2 0.1000  0.0250  0.1000  0.0260  0.1000  0.0270  0.1000  0.0280
+MKAERO2 0.1000  0.0290  0.1000  0.0300  0.1000  0.0310  0.1000  0.0320
+MKAERO2 0.1000  0.0330  0.1000  0.0340  0.1000  0.0350  0.1000  0.0360
+MKAERO2 0.1000  0.0370  0.1000  0.0380  0.1000  0.0390  0.1000  0.0400
+MKAERO2 0.1000  0.0410  0.1000  0.0420  0.1000  0.0430  0.1000  0.0440
+MKAERO2 0.1000  0.0450  0.1000  0.0460  0.1000  0.0470  0.1000  0.0480
+MKAERO2 0.1000  0.0490  0.1000  0.0500  0.1000  0.0510  0.1000  0.0520
+MKAERO2 0.1000  0.0530  0.1000  0.0540  0.1000  0.0550  0.1000  0.0560
+MKAERO2 0.1000  0.0570  0.1000  0.0580  0.1000  0.0590  0.1000  0.0600
+MKAERO2 0.1000  0.0610  0.1000  0.0620  0.1000  0.0630  0.1000  0.0640
+MKAERO2 0.1000  0.0650  0.1000  0.0660  0.1000  0.0670  0.1000  0.0680
+MKAERO2 0.1000  0.0690  0.1000  0.0700  0.1000  0.0710  0.1000  0.0720
+MKAERO2 0.1000  0.0730  0.1000  0.0740  0.1000  0.0750  0.1000  0.0760
+MKAERO2 0.1000  0.0770  0.1000  0.0780  0.1000  0.0790  0.1000  0.0800
+MKAERO2 0.1000  0.0810  0.1000  0.0820  0.1000  0.0830  0.1000  0.0840
+MKAERO2 0.1000  0.0850  0.1000  0.0860  0.1000  0.0870  0.1000  0.0880
+MKAERO2 0.1000  0.0890  0.1000  0.0900  0.1000  0.0910  0.1000  0.0920
+MKAERO2 0.1000  0.0930  0.1000  0.0940  0.1000  0.0950  0.1000  0.0960
+MKAERO2 0.1000  0.0970  0.1000  0.0980  0.1000  0.0990  0.1000  0.1000
+MKAERO2 0.1000  0.1010  0.1000  0.1020  0.1000  0.1030  0.1000  0.1040
+MKAERO2 0.1000  0.1050  0.1000  0.1060  0.1000  0.1070  0.1000  0.1080
+MKAERO2 0.1000  0.1090  0.1000  0.1100  0.1000  0.1110  0.1000  0.1120
+MKAERO2 0.1000  0.1130  0.1000  0.1140  0.1000  0.1150  0.1000  0.1160
+MKAERO2 0.1000  0.1170  0.1000  0.1180  0.1000  0.1190  0.1000  0.1200
+MKAERO2 0.1000  0.1210  0.1000  0.1220  0.1000  0.1230  0.1000  0.1240
+MKAERO2 0.1000  0.1250  0.1000  0.1260  0.1000  0.1270  0.1000  0.1280
+MKAERO2 0.1000  0.1290  0.1000  0.1300  0.1000  0.1310  0.1000  0.1320
+MKAERO2 0.1000  0.1330  0.1000  0.1340  0.1000  0.1350  0.1000  0.1360
+MKAERO2 0.1000  0.1370  0.1000  0.1380  0.1000  0.1390  0.1000  0.1400
+MKAERO2 0.1000  0.1410  0.1000  0.1420  0.1000  0.1430  0.1000  0.1440
+MKAERO2 0.1000  0.1450  0.1000  0.1460  0.1000  0.1470  0.1000  0.1480
+MKAERO2 0.1000  0.1490  0.1000  0.1500  0.1000  0.1510  0.1000  0.1520
+MKAERO2 0.1000  0.1530  0.1000  0.1540  0.1000  0.1550  0.1000  0.1560
+MKAERO2 0.1000  0.1570  0.1000  0.1580  0.1000  0.1590  0.1000  0.1600
+MKAERO2 0.1000  0.1610  0.1000  0.1620  0.1000  0.1630  0.1000  0.1640
+MKAERO2 0.1000  0.1650  0.1000  0.1660  0.1000  0.1670  0.1000  0.1680
+MKAERO2 0.1000  0.1690  0.1000  0.1700  0.1000  0.1710  0.1000  0.1720
+MKAERO2 0.1000  0.1730  0.1000  0.1740  0.1000  0.1750  0.1000  0.1760
+MKAERO2 0.1000  0.1770  0.1000  0.1780  0.1000  0.1790  0.1000  0.1800
+MKAERO2 0.1000  0.1810  0.1000  0.1820  0.1000  0.1830  0.1000  0.1840
+MKAERO2 0.1000  0.1850  0.1000  0.1860  0.1000  0.1870  0.1000  0.1880
+MKAERO2 0.1000  0.1890  0.1000  0.1900  0.1000  0.1910  0.1000  0.1920
+MKAERO2 0.1000  0.1930  0.1000  0.1940  0.1000  0.1950  0.1000  0.1960
+MKAERO2 0.1000  0.1970  0.1000  0.1980  0.1000  0.1990  0.1000  0.2000
+
+$                                                                       $
+$                     * * VIBRATION ANALYSIS * *                        $
+$                                                                       $
+$        THE EIGR ENTRY SPECIFIES THE METHOD OF EXTRACTING THE EIGEN-   $
+$        SOLUTIONS OF THE STRUCTURE; IN THIS CASE THE MODIFIED          $
+$        GIVENS METHOD.  SIX MODES ARE DESIRED, NORMALIZED ON THE       $
+$        MAXIMUM DISPLACEMENTS.                                         $
+$                                                                       $
+$       SID     METHOD  F1      F2              NO                      $
+EIGR    10      MGIV                            6                       +ER
+$       NORM                                                            $
++ER     MAX
+$                                                                       $
+$        THE PARAM,OPPHIPA,1 PROVIDES THE VIBRATION MODES FOR THE       $
+$        MODAL PLOT REQUESTS.                                           $
+$                                                                       $
+PARAM   OPPHIPA 1
+$                                                                       $
+$                       * * FLUTTER ANALYSIS * *                        $
+$                                                                       $
+$        THE PARAM,LMODES,N ENTRY SPECIFIES THAT N VIBRATION MODES      $
+$        ARE TO BE USED IN THE FLUTTER ANALYSIS.  IF A RESTART IS       $
+$        CONTEMPLATED TO DELETE MODES FROM THE ANALYSIS LMODES          $
+$        SHOULD BE LARGE ENOUGH TO ACCOMMODATE THE DELETION.            $
+$                                                                       $
+PARAM   LMODES  6
+$                                                                       $
+$        THE FLUTTER ENTRY DEFINES THE METHOD OF SOLUTION, IDENTIFIES   $
+$        THE FLFACT ENTRIES THAT FOLL0W, SPECIFIES THE INTERPOLATION    $
+$        METHOD, THE NUMBER OF ROOTS DESIRED IN THE OUTPUT AND THE      $
+$        CRITERION FOR CONVERGENCE.                                     $
+$                                                                       $
+$       SID     METHOD  DENS    MACH    VEL     IMETH   NVALUE  EPS     $
+$FLUTTER 30      PK      1       2       3       L
+$                                                                       $
+$        FLFACT ENTRIES ARE USED TO SPECIFY DENSITY RATIOS, MACH NOS.   $
+$        AND REDUCED FREQUENCIES/VELOCITIES FOR FLUTTER ANALYSES.       $
+$                                                                       $
+$       SID     F1      F2      F3      F4      F5      F6      F7      $
+FLFACT  1       0.967                                                   DENSITY
+FLFACT  2       .1                                                      MACH NO
+$ Velocity sets
+FLFACT  3       109.50  125.65  141.80  157.94  174.09  190.24
+        206.39	222.54  238.68  254.83  270.98  287.13  303.28
+		319.42	335.57  351.72  367.87  384.02  400.16  416.31
+		432.46  448.61  464.76  480.91  497.05  513.20  529.35
+		545.50  561.65  577.79  593.94  610.09  626.24  642.39
+		658.53  674.68  690.83  706.98  723.13  739.27  755.42
+		771.57  787.72  803.87  820.01  836.16  852.31  868.46
+		884.61  900.75  916.90  933.05  949.20  965.35  981.49
+		997.64  1013.79 1029.94 1046.08 1062.23 1078.38 1094.53
+		1110.68 1126.82 1142.97 1159.12 1175.27 1191.42 1207.56
+		1223.71 1239.86 1256.01 1272.16 1288.31 1304.45 1320.60
+		1336.75 1352.90 1369.05 1385.19 1401.34 1417.49 1433.64
+		1449.79 1465.93 1482.08 1498.23 1514.38 1530.53 1546.67
+		1562.82 1578.97 1595.12 1611.27 1627.41 1643.56 1659.71
+		1675.86 1692.01 1708.15 1724.30 1740.45 1756.60 1772.75
+		1788.90 1805.04 1821.19 1837.34 1853.49 1869.64 1885.78
+		1901.93 1918.08 1934.23 1950.38 1966.52 1982.67 1998.82
+		2014.97 2031.12 2047.26 2063.41 2079.56 2095.71 2111.86
+		2128.00 2144.15 2160.30 2176.45 2192.60 2208.74 2224.89
+		2241.04 2257.19 2273.34 2289.49 2305.63 2321.78 2337.93
+		2354.08 2370.23 2386.37 2402.52 2418.67 2434.82 2450.97
+		2467.11 2483.26 2499.41 2515.56 2531.71 2547.85 2564.00
+		2580.15 2596.30 2612.45 2628.59 2644.74 2660.89 2677.04
+		2693.19 2709.33 2725.48 2741.63 2757.78 2773.93 2790.08
+		2806.22 2822.37 2838.52 2854.67 2870.82 2886.96 2903.11
+		2919.26 2935.41 2951.56 2967.70 2983.85 3000.00
+FLUTTER 30      PK      1       2       3                       .001
+$                                                                       $
+$        THE PARAMETER VREF IS USED TO DIVIDE THE ANALYSIS UNITS        $
+$        OF VELOCITY TO THOSE DESIRED IN THE FLUTTER SUMMARY, IN        $
+$        THIS CASE FROM IN/S TO FT/S.                                   $
+$                                                                       $
+$       N       V1      V2
+PARAM   VREF    12.0
+$
+ENDDATA

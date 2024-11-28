@@ -1,0 +1,830 @@
+1
+ 
+ 
+ 
+ 
+                      Warning: This computer program is protected by copyright law and international treaties.       
+                  Unauthorized use, reproduction or distribution of this computer program, or any portion of it, may 
+                                          result in severe civil and criminal penalties.                             
+                         Copyright (C) 2023 Hexagon AB and/or its subsidiaries. All rights reserved.                 
+ 
+ 
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * *                                 * *
+                                              * *           Hexagon AB            * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *      M S C   N a s t r a n      * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *     Version 2023.3-CL927167     * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *                                 * *
+                                              * *          SEP 18, 2023           * *
+                                              * *                                 * *
+                                              * *              Intel              * *
+                                              * *MODEL Intel(R) Core(TM) i9-10940 * *
+                                              * * Windows 10 Enterprise 6.2 9200  * *
+                                              * * Compiled for 8664 (SINGLE Mode) * *
+                                              * *                                 * *
+                                              * * * * * * * * * * * * * * * * * * * *
+                                              * * * * * * * * * * * * * * * * * * * *
+1News file
+  
+               Welcome to MSC Nastran 2023.3
+  
+   MSC Nastran brings powerful new features and enhancements for engineering
+   solutions in several releases through the year. Key enhancements in
+   Version 2023.3 are summarized below. Addtional details can be found in
+   the MSC Nastran Version 2023.3 Release Guide.
+  
+  
+     MSC Nastran 2023.3 Features and Enhancements
+  
+     High Performance Computing
+     - Nastran BUFFSIZE default changed from 32769 to 65537 for improved
+       I/O performance
+     - Automatic Buffer Pool (BPOOL) allocation when "mem=" is set to a
+       value (e.g. 32gb), for this case 10% of the memory is allocated
+       to buffer pool
+     - Default value for ACMS parameter MDOPT14 changed to YES for improved
+       domain decomposition process
+     - New features for "solve=auto" (automatic solver selection)
+        - New "acms={yes|no}" keyword to selet/de-select ACMS
+          Set "solve=auto acms=no" to de-select ACMS
+          Set "solve=auto acms=yes" to select ACMS
+        - New "norun={yes|no}" keyword to print automatically generated command
+          line options (default: no) and terminate job excution
+          Set "solve=auto norun=yes" print automatically generated command line,
+          and halt prior to job execution
+  
+     Documentation
+     - The complete documentation set is provided in a separate installer and
+       when installed is available at: MSC_DOC_DIR/doc/pdf_nastran directory,
+       where MSC_DOC_DIR is the directory where documentation was installed.
+       This help set includes cross references between documents, and links to
+       how-to videos, and example files
+  
+     Individual MSC Nastran documents are available for download from the
+       Simcompanion Website at:
+       http://simcompanion.hexagon.com/
+  
+     These documentation set includes the following:
+  
+         1.  MSC Nastran 2023.3 Installation and Operations Guide
+         2.  MSC Nastran 2023.3 Quick Reference Guide
+         3.  MSC Nastran 2023.3 Release Guide
+         4.  MSC Nastran 2023.3 Linear Statics Analysis User's Guide
+         5.  MSC Nastran 2023.3 Dynamic Analysis User's Guide
+         6.  MSC Nastran 2023.3 Superelements User's Guide
+         7.  MSC Nastran 2023.3 Rotordynamics User's Guide
+         8.  MSC Nastran 2023.3 Demonstration Problems Manual
+1        9.  MSC Nastran 2023.3 Nastran Embedded Fatigue User's Guide
+        10.  MSC Nastran 2023.3 Design Sensitivity and Optimization
+        11.  MSC Nastran 2023.3 Nonlinear User's Guide SOL 400
+        12.  MSC Nastran 2023.3 DMAP Programmer's Guide
+        13.  MSC Nastran 2023.3 High Performance Computing User's Guide
+        14.  MSC Nastran 2023.3 New Verification Manual
+        15.  MSC Nastran 2023.3 DEMATD Guide
+        16.  MSC Nastran 2023.3 Explicit Nonlinear (SOL 700) User's Guide
+        17.  MSC Nastran 2023.3 ACMS User's Guide
+  
+   Please refer to  MSC_DOC_DIR/doc/pdf_nastran/nastran_library.pdf
+   for the complete document set:
+  
+  
+   Additional information about the release can be found at the MSC Nastran
+   Product Support page: http://simcompanion.hexagon.com
+  
+   The support page provides links to these valuable information:
+      * A searchable Knowledge Base containing examples and answers to thousands
+        of frequently asked questions written by MSC Software subject-matter
+        experts.
+      * Peer-to-peer Discussion Forums enabling you to post questions for your
+        MSC Software products and receive answers from other users worldwide.
+      * A list of known issues with the product and any workarounds.
+      * Instructions on how to contact technical support
+      * A mechanism for sending us product feedback or enhancement requests.
+      * Hardware and software requirements.
+      * Examples and Tutorials
+      * and much more.
+  
+   For information on training, please visit our Training web site
+  
+      https://www.mscsoftware.com/msc-training
+  
+1                                                                          NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     1
+                                                                                                                                    
+0        N A S T R A N    F I L E    A N D    S Y S T E M    P A R A M E T E R    E C H O                                           
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     $ SYSFIELD=SCR*(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NAS
+     $ SYSFIELD=DBALL(RAW=YES,BUFFIO=YES,WNUM=16,WSIZE=16MB) $(C:/MSC.SOFTWARE/MSC_NA
+     NASTRAN BUFFSIZE=65537 $(C:/MSC.SOFTWARE/MSC_NASTRAN/2023.3/CONF/NAST20233.RCF[6
+1                                                                          NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     2
+                                                                                                                                    
+0        N A S T R A N    E X E C U T I V E    C O N T R O L    E C H O                                                             
+0                                                                                                                                   
+                                                                                                                                    
+                                                                                                                                    
+     SOL 144  $ FLUTTER ANALYSIS                                                             
+     CEND                                                                                    
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     3
+                                                                                                                                    
+0                                                                                                                                   
+0                                        C A S E    C O N T R O L    E C H O                                                        
+                 COMMAND                                                                                                            
+                 COUNT                                                                                                              
+                  1      TITLE = EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E                   
+                  2      $SUBT  = KE-METHOD FLUTTER ANALYSIS, DOUBLET-LATTICE AERO                               
+                  3      $LABEL = 0.041 IN AL PLATE W/BEVELLED LEADING AND TRAILING EDGES                        
+                  4        ECHO    = NONE                                                                        
+                  5      SUBCASE 1                                                                               
+                  6       $ ANALYSIS = FLUTTER                                                                   
+                  7       $ NLPARM = 1                                                                           
+                  8        SPC     = 2   $ WING ROOT DEFLECTIONS AND PLATE IN-PLANE ROTATIONS FIX        ED      
+                  9        $SDAMPING   = 2000                                                                    
+                 10        $METHOD  = 10  $ MODIFIED GIVENS METHOD OF REAL EIGENVALUE EXTRACTION                 
+                 11        $FMETHOD = 30  $ PK-FLUTTER METHOD                                                    
+                 12        $SVEC    = ALL $ PRINT VIBRATION MODES                                                
+                 13        TRIMF = ALL                                                                           
+                 14        TRIM = 101                                                                            
+                 15        DISP = ALL                                                                            
+                 16      BEGIN BULK                                                                              
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     4
+                                                                                                                                    
+0                                                                                                                                   
+                                              I N P U T   B U L K   D A T A   E C H O                                               
+                 ENTRY                                                                                                              
+                 COUNT        .   1  ..   2  ..   3  ..   4  ..   5  ..   6  ..   7  ..   8  ..   9  ..  10  .                      
+                              $INCLUDE "M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis\platedowellopenjet.dat"
+                              $END OF INCLUDE "M:\c_users_wzhao_documents\GitHub\plate_flutter\linear_analysis\platedowellopenjet.dat"
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     5
+                                                                                                                                    
+0                                                                                                                                   
+                                        M O D E L   S U M M A R Y          BULK = 0
+                                   ENTRY NAME        NUMBER OF ENTRIES
+                                   ----------        -----------------
+                                       AELIST                        1
+                                         AERO                        1
+                                        AEROS                        1
+                                       AESTAT                        1
+                                       CAERO1                        1
+                                       CQUAD4                      200
+                                         EIGR                        1
+                                       FLFACT                        4
+                                      FLUTTER                        1
+                                         GRID                      231
+                                         MAT1                        1
+                                       MDLPRM                        1
+                                      MKAERO2                      200
+                                      MONCNCM                        1
+                                       PAERO1                        1
+                                        PARAM                        9
+                                       PSHELL                        1
+                                         SET1                        2
+                                         SPC1                        1
+                                       SPCADD                        1
+                                      SPLINE4                        1
+                                      TABDMP1                        1
+                                         TRIM                        1
+
+ ^^^     
+ ^^^ >>> IFP OPERATIONS COMPLETE <<< 
+ ^^^     
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK PVT, TRAILER[101, 37, 0, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK CASECC, TRAILER[102, 1, 0, 1000, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM1Q, TRAILER[101, 0, 0, 8, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK EPT, TRAILER[101, 0, 512, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK MPT, TRAILER[102, 32768, 0, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM2, TRAILER[103, 0, 0, 0, 8192, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM4S, TRAILER[105, 0, 0, 0, 96, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (DATA BLOCK GEOM4S IS NOT SUPPORTED)
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM1, TRAILER[101, 0, 0, 8, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK DYNAMIC, TRAILER[102, 8192, 0, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK EDT, TRAILER[103, 8388608, 3847, 10880, 0, 32768, 4])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK DIT, TRAILER[104, 0, 2048, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM4, TRAILER[102, 0, 0, 0, 96, 0, 0])
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     6
+                                                                                                                                    
+0                                                                                                                                   
+0 RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  OLOAD    RESULTANT       
+  SUBCASE/    LOAD
+  DAREA ID    TYPE       T1            T2            T3            R1            R2            R3
+0        1     FX    0.000000E+00     ----          ----          ----       0.000000E+00  0.000000E+00                             
+               FY       ----       0.000000E+00     ----       0.000000E+00     ----       0.000000E+00                             
+               FZ       ----          ----       0.000000E+00  0.000000E+00  0.000000E+00     ----                                  
+               MX       ----          ----          ----       0.000000E+00     ----          ----                                  
+               MY       ----          ----          ----          ----       0.000000E+00     ----                                  
+               MZ       ----          ----          ----          ----          ----       0.000000E+00                             
+             TOTALS  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00  0.000000E+00
+  
+ *** SYSTEM INFORMATION MESSAGE 4159 (DFMSA)
+     THE DECOMPOSITION OF KLL      YIELDS A MAXIMUM MATRIX-TO-FACTOR-DIAGONAL RATIO OF    6.498040E+02
+ ^^^     
+ *** USER INFORMATION MESSAGE 9936 (SUBDMAP MAKPRBD)
+     THE FOLLOWING RIGID BODY DEGREES OF FREEDOM ARE DEFINED TO BE SUPPORTED BY THE SUPDOF PARAMETER: (NONE)
+ ^^^     
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     7
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+    N O N - D I M E N S I O N A L   S T A B I L I T Y   A N D   C O N T R O L   D E R I V A T I V E   C O E F F I C I E N T S
+
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+                                         MACH = 0.0000E+00                    Q = 4.1551E-02
+                         CHORD = 5.9400E+00           SPAN = 1.0830E+01            AREA = 6.4330E+01
+
+
+                TRANSFORMATION FROM BASIC TO REFERENCE COORDINATES:
+
+              { X }        [  1.0000   0.0000   0.0000  ]  { X }         { 0.0000E+00 }
+              { Y }    =   [  0.0000   1.0000   0.0000  ]  { Y }      +  { 0.0000E+00 }
+              { Z }REF     [  0.0000   0.0000   1.0000  ]  { Z }BAS      { 0.0000E+00 }
+
+
+
+
+    CONTROLLER STATE: INTERCEPT ONLY, ALL CONTROLLERS ARE ZERO
+
+    TRIM VARIABLE   COEFFICIENT              RIGID                         ELASTIC                          INERTIAL
+                                   UNSPLINED        SPLINED       RESTRAINED      UNRESTRAINED     RESTRAINED      UNRESTRAINED
+
+    REF. COEFF.      CX         0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CY         0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CZ         0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CMX        0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CMY        0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CMZ        0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+
+    ANGLEA           CX         0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CY         0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+                     CZ         2.379264E+00    2.362531E+00    -4.014708E+01        N/A          0.000000E+00        N/A
+                     CMX        1.189632E+00    1.189632E+00    -2.249465E+01        N/A          0.000000E+00        N/A
+                     CMY       -4.896060E-01   -4.863798E-01     1.151009E+01        N/A          0.000000E+00        N/A
+                     CMZ        0.000000E+00    0.000000E+00     0.000000E+00        N/A          0.000000E+00        N/A
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     8
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+                                                  INTERMEDIATE MATRIX ... UX      
+
+
+                                                            COLUMN      1
+     1                                               1.000000E+00       3.490700E-03                                              2
+
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE     9
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+                                                  INTERMEDIATE MATRIX ... UXIFV   
+
+
+                                                            COLUMN      1
+     1                                               9.965093E-01       3.490700E-03                                              2
+
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeInput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK GEOM3, TRAILER[101, 0, 0, 64, 0, 0, 0])
+ *** USER FATAL MESSAGE 1250 (OPNPFL)
+     STATUS =           32, FILX =   40, LOGNAME = DBC     , NSBUF3 =     1024
+     FILE = ./sol144_openjet_static_aeroelastic_analysis.xdb
+ *** USER FATAL MESSAGE 1250 (OPNPFL)
+     ERROR MESSAGE IS --
+     The process cannot access the file because it is being used by another process.
+ *** SYSTEM WARNING MESSAGE 6066 (DBC)
+ *** DBCMSG ERROR MESSAGE   34 FROM SUBROUTINE DBC
+     THE DBC MODULE HAS BEEN TERMINATED BECAUSE OF THE ABOVE FATAL DBC ERROR.
+     USER INFORMATION: SUBSEQUENT DBC CALLS WILL NOT BE EXECUTED, AND THE DATABASE CONVERSION IS INCOMPLETE.
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    10
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                               A E R O S T A T I C   D A T A   R E C O V E R Y   O U T P U T   T A B L E S
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+                                           MACH = 0.000000E+00                Q = 4.155100E-02
+                         CHORD = 5.9400E+00           SPAN = 1.0830E+01            AREA = 6.4330E+01
+
+          TRIM ALGORITHM USED: LINEAR TRIM SOLUTION WITHOUT REDUNDANT CONTROL SURFACES.                                           
+
+
+                                                      AEROELASTIC TRIM VARIABLES
+
+                                  ID     LABEL                 TYPE        TRIM STATUS      VALUE OF UX
+
+                                         INTERCEPT          RIGID BODY           FIXED      1.000000E+00
+                                 501     ANGLEA             RIGID BODY           FIXED      3.490700E-03  RADIANS         
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    11
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                               A E R O S T A T I C   D A T A   R E C O V E R Y   O U T P U T   T A B L E S
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+                                           MACH = 0.000000E+00                Q = 4.155100E-02
+                         CHORD = 5.9400E+00           SPAN = 1.0830E+01            AREA = 6.4330E+01
+
+
+                                        TRANSFORMATION FROM REFERENCE TO WIND AXES:
+                                ANGLE OF ATTACK   =  3.490700E-03 RADIANS (     0.200002 DEGREES)
+                                ANGLE OF SIDESLIP =  0.000000E+00 RADIANS (     0.000000 DEGREES)
+
+                                      { X }          [  0.999994  0.000000  0.003491 ]  { X }
+                                      { Y }          [  0.000000  1.000000  0.000000 ]  { Y }
+                                      { Z }WIND =    [ -0.003491  0.000000  0.999994 ]  { Z }REF
+
+
+    STRUCTURAL  MONITOR POINT TOTAL VEHICLE COEFFICIENTS:
+          AXIS         RIGID AIR  +  RESTRAINED INCR.  -  INERTIAL  +   RIGID-APPLIED + RESTRAINED INCR.  =  BALANCE
+          ----         ---------     ----------------     --------      -------------   ----------------     -------
+    BODY  CX          0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+    WIND  CD          2.878735E-05    -5.179780E-04     0.000000E+00     0.000000E+00     0.000000E+00    -4.891906E-04
+ 
+    BODY  CY          0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+    WIND  CY-WIND     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+ 
+    BODY  CZ          8.246886E-03    -1.483883E-01     0.000000E+00     0.000000E+00     0.000000E+00    -1.401414E-01
+    WIND  CL          8.246836E-03    -1.483874E-01     0.000000E+00     0.000000E+00     0.000000E+00    -1.401406E-01
+ 
+    BODY  CMX         4.152648E-03    -8.267471E-02     0.000000E+00     0.000000E+00     0.000000E+00    -7.852207E-02
+    WIND  CM-ROLL     4.152622E-03    -8.267421E-02     0.000000E+00     0.000000E+00     0.000000E+00    -7.852159E-02
+ 
+    BODY  CMY        -1.697806E-03     4.187608E-02     0.000000E+00     0.000000E+00     0.000000E+00     4.017827E-02
+    WIND  CM-PITCH   -1.697806E-03     4.187608E-02     0.000000E+00     0.000000E+00     0.000000E+00     4.017827E-02
+ 
+    BODY  CMZ         0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+    WIND  CM-YAW     -1.449562E-05     2.885920E-04     0.000000E+00     0.000000E+00     0.000000E+00     2.740964E-04
+ 
+
+
+    AERODYNAMIC MONITOR POINT TOTAL VEHICLE COEFFICIENTS:
+          AXIS         RIGID AIR  +  RESTRAINED INCR.  -  INERTIAL  +   RIGID-APPLIED + RESTRAINED INCR.  =  BALANCE
+          ----         ---------     ----------------     --------      -------------   ----------------     -------
+    BODY  CX          0.000000E+00     0.000000E+00           N/A              N/A        0.000000E+00     0.000000E+00
+    WIND  CD          2.899124E-05    -5.197334E-04           N/A              N/A        0.000000E+00    -4.907421E-04
+ 
+    BODY  CY          0.000000E+00     0.000000E+00           N/A              N/A        0.000000E+00     0.000000E+00
+    WIND  CY-WIND     0.000000E+00     0.000000E+00           N/A              N/A        0.000000E+00     0.000000E+00
+ 
+    BODY  CZ          8.305296E-03    -1.488912E-01           N/A              N/A        0.000000E+00    -1.405859E-01
+    WIND  CL          8.305245E-03    -1.488903E-01           N/A              N/A        0.000000E+00    -1.405850E-01
+ 
+    BODY  CMX         4.152648E-03    -8.267471E-02           N/A              N/A        0.000000E+00    -7.852207E-02
+    WIND  CM-ROLL     4.152622E-03    -8.267421E-02           N/A              N/A        0.000000E+00    -7.852159E-02
+ 
+    BODY  CMY        -1.709068E-03     4.208679E-02           N/A              N/A        0.000000E+00     4.037772E-02
+    WIND  CM-PITCH   -1.709068E-03     4.208679E-02           N/A              N/A        0.000000E+00     4.037772E-02
+ 
+    BODY  CMZ         0.000000E+00     0.000000E+00           N/A              N/A        0.000000E+00     0.000000E+00
+    WIND  CM-YAW     -1.449562E-05     2.885920E-04           N/A              N/A        0.000000E+00     2.740964E-04
+ 
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeOutput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK OTRIMV, TRAILER[101, 1, 0, 0, 0, 0, 0])
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    12
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                              S T R U C T U R A L   M O N I T O R   P O I N T   I N T E G R A T E D   L O A D S
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+                                           MACH = 0.000000E+00                Q = 4.155100E-02
+
+        CONTROLLER STATE:
+        ANGLEA   =   3.4907E-03
+
+        MONITOR POINT NAME = AEROSG2D          COMPONENT =                   CLASS = COEFFICIENT               
+        LABEL = Full Vehicle Integrated Loads                           
+         CP =        0          X =  0.00000E+00          Y =  0.00000E+00          Z =  0.00000E+00          CD =        0
+
+          AXIS      RIGID AIR       ELASTIC REST.   RIGID APPLIED    REST. APPLIED   
+          ----    -------------    -------------    -------------    -------------   
+           CX     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+           CY     0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+           CZ     2.204380E-02    -3.745958E-01     0.000000E+00     0.000000E+00
+           CMX    1.202126E-01    -2.273090E+00     0.000000E+00     0.000000E+00
+           CMY   -2.695696E-02     6.379315E-01     0.000000E+00     0.000000E+00
+           CMZ    0.000000E+00     0.000000E+00     0.000000E+00     0.000000E+00
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    13
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+
+                              A E R O D Y N A M I C   M O N I T O R   P O I N T   I N T E G R A T E D   L O A D S
+                         CONFIGURATION = AEROSG2D     XY-SYMMETRY = ASYMMETRIC     XZ-SYMMETRY = ASYMMETRIC
+                                           MACH = 0.000000E+00                Q = 4.155100E-02
+
+        CONTROLLER STATE:
+        ANGLEA   =   3.4907E-03
+
+        MONITOR POINT NAME = AEROSG2D          COMPONENT =                   CLASS = COEFFICIENT               
+        LABEL = Full Vehicle Integrated Loads                           
+         CP =        0          X =  0.00000E+00          Y =  0.00000E+00          Z =  0.00000E+00          CD =        0
+
+          AXIS      RIGID AIR       ELASTIC REST.  
+          ----    -------------    -------------   
+           CX     0.000000E+00     0.000000E+00
+           CY     0.000000E+00     0.000000E+00
+           CZ     2.219992E-02    -3.757838E-01
+           CMX    1.202126E-01    -2.273090E+00
+           CMY   -2.713576E-02     6.410983E-01
+           CMZ    0.000000E+00     0.000000E+00
+
+        MONCNCM NAME =       ALL               INT GROUP ID =     1          CLASS = STRIP                     
+        LABEL = ALL STRIPS                                              
+         CP =        0          AERODYNAMIC COORDINATE SYSTEM 
+
+                                                                               FORCE                    MOMENT
+ STRP     YS          ZS        XREF          REFC         REFS         RIGID       ELASTIC      RIGID       ELASTIC   
+ ____  __________  __________  __________  ___________  ___________  ___________  ___________  ___________  ___________
+    1   1.504E-01   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   3.1306E-03  -2.3137E-02   2.5295E-04   3.8025E-03
+    2   4.513E-01   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   4.6069E-03  -3.7344E-02   3.3591E-04   6.5658E-03
+    3   7.521E-01   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   5.6489E-03  -4.9746E-02   3.7550E-04   8.9066E-03
+    4   1.053E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   6.4638E-03  -6.1802E-02   3.9475E-04   1.1194E-02
+    5   1.354E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   7.1306E-03  -7.3288E-02   4.0269E-04   1.3045E-02
+    6   1.655E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   7.6896E-03  -8.4455E-02   4.0396E-04   1.4591E-02
+    7   1.955E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   8.1645E-03  -9.5082E-02   4.0122E-04   1.5659E-02
+    8   2.256E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   8.5710E-03  -1.0540E-01   3.9616E-04   1.6443E-02
+    9   2.557E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   8.9198E-03  -1.1518E-01   3.8987E-04   1.6815E-02
+   10   2.858E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.2187E-03  -1.2452E-01   3.8308E-04   1.6884E-02
+   11   3.159E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   9.4736E-03  -1.3339E-01   3.7631E-04   1.6672E-02
+   12   3.460E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.6889E-03  -1.4169E-01   3.6991E-04   1.6161E-02
+   13   3.760E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.8682E-03  -1.4955E-01   3.6411E-04   1.5478E-02
+   14   4.061E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   1.0014E-02  -1.5676E-01   3.5909E-04   1.4527E-02
+   15   4.362E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0128E-02  -1.6350E-01   3.5497E-04   1.3480E-02
+   16   4.663E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0213E-02  -1.6957E-01   3.5182E-04   1.2234E-02
+   17   4.964E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0269E-02  -1.7509E-01   3.4969E-04   1.0927E-02
+   18   5.265E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0296E-02  -1.7995E-01   3.4862E-04   9.5099E-03
+   19   5.565E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0296E-02  -1.8417E-01   3.4862E-04   8.0482E-03
+   20   5.866E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0269E-02  -1.8771E-01   3.4969E-04   6.5554E-03
+   21   6.167E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   1.0213E-02  -1.9052E-01   3.5182E-04   5.0310E-03
+   22   6.468E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0128E-02  -1.9260E-01   3.5497E-04   3.5352E-03
+   23   6.769E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   1.0014E-02  -1.9384E-01   3.5909E-04   2.0274E-03
+   24   7.070E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.8682E-03  -1.9427E-01   3.6411E-04   5.8405E-04
+   25   7.370E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.6889E-03  -1.9375E-01   3.6991E-04  -8.3836E-04
+   26   7.671E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   9.4736E-03  -1.9227E-01   3.7631E-04  -2.1797E-03
+   27   7.972E+00   0.000E+00   1.485E+00   5.9400E+00   1.7870E+00   9.2187E-03  -1.8969E-01   3.8308E-04  -3.4593E-03
+   28   8.273E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   8.9198E-03  -1.8593E-01   3.8987E-04  -4.6463E-03
+   29   8.574E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   8.5710E-03  -1.8084E-01   3.9616E-04  -5.7299E-03
+   30   8.875E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   8.1645E-03  -1.7422E-01   4.0122E-04  -6.6976E-03
+   31   9.175E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   7.6896E-03  -1.6583E-01   4.0396E-04  -7.5078E-03
+   32   9.476E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   7.1306E-03  -1.5529E-01   4.0269E-04  -8.1440E-03
+   33   9.777E+00   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   6.4638E-03  -1.4206E-01   3.9475E-04  -8.5174E-03
+   34   1.008E+01   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   5.6489E-03  -1.2522E-01   3.7550E-04  -8.5195E-03
+   35   1.038E+01   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   4.6069E-03  -1.0295E-01   3.3591E-04  -7.9237E-03
+   36   1.068E+01   0.000E+00   1.485E+00   5.9400E+00   1.7869E+00   3.1306E-03  -7.0444E-02   2.5295E-04  -6.1875E-03
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeOutput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK OSTBDRVT, TRAILER[101, 1, 0, 0, 0, 0, 0])
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeMatrix)
+ *** USER INFORMATION MESSAGE  (HP)
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeOutput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK OMONPNT, TRAILER[101, 38, 0, 0, 0, 0, 0])
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    14
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0 RESULTANTS ABOUT ORIGIN OF SUPERELEMENT BASIC COORDINATE SYSTEM IN SUPERELEMENT BASIC SYSTEM COORDINATES.
+
+0                                                  TRIMMED  OLOAD RESULTANT 
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00 -3.7578382E-01 -2.2730896E+00  6.4109830E-01  0.0000000E+00
+ *** USER FATAL MESSAGE 1250 (OPNPFL)
+     STATUS =           32, FILX =   40, LOGNAME = DBC     , NSBUF3 =     1024
+     FILE = ./sol144_openjet_static_aeroelastic_analysis.xdb
+ *** USER FATAL MESSAGE 1250 (OPNPFL)
+     ERROR MESSAGE IS --
+     The process cannot access the file because it is being used by another process.
+ *** SYSTEM WARNING MESSAGE 6066 (DBC)
+ *** DBCMSG ERROR MESSAGE   34 FROM SUBROUTINE DBC
+     THE DBC MODULE HAS BEEN TERMINATED BECAUSE OF THE ABOVE FATAL DBC ERROR.
+     USER INFORMATION: SUBSEQUENT DBC CALLS WILL NOT BE EXECUTED, AND THE DATABASE CONVERSION IS INCOMPLETE.
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    15
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0                                                  MAXIMUM  DISPLACEMENTS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  3.6328369E+00  4.2978574E-01  9.4552285E-02  0.0000000E+00
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    16
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+0                                                  MAXIMUM  APPLIED LOADS   
+  SUBCASE/
+  DAREA ID        T1             T2             T3             R1             R2             R3
+0        1   0.0000000E+00  0.0000000E+00  6.8713095E-03  0.0000000E+00  0.0000000E+00  0.0000000E+00
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    17
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+             1      G      0.0            0.0            0.0            0.0            0.0            0.0
+             2      G      0.0            0.0            0.0            0.0            0.0            0.0
+             3      G      0.0            0.0            0.0            0.0            0.0            0.0
+             4      G      0.0            0.0            0.0            0.0            0.0            0.0
+             5      G      0.0            0.0            0.0            0.0            0.0            0.0
+             6      G      0.0            0.0            0.0            0.0            0.0            0.0
+             7      G      0.0            0.0            0.0            0.0            0.0            0.0
+             8      G      0.0            0.0            0.0            0.0            0.0            0.0
+             9      G      0.0            0.0            0.0            0.0            0.0            0.0
+            10      G      0.0            0.0            0.0            0.0            0.0            0.0
+            11      G      0.0            0.0            0.0            0.0            0.0            0.0
+            12      G      0.0            0.0           -1.399767E-02  -5.155282E-02   1.410883E-02   0.0
+            13      G      0.0            0.0           -1.833311E-02  -6.648123E-02   1.170124E-03   0.0
+            14      G      0.0            0.0           -1.862856E-02  -6.730702E-02   1.731447E-05   0.0
+            15      G      0.0            0.0           -1.830459E-02  -6.607194E-02  -1.043670E-03   0.0
+            16      G      0.0            0.0           -1.768277E-02  -6.389040E-02  -1.119823E-03   0.0
+            17      G      0.0            0.0           -1.696058E-02  -6.133194E-02  -1.411069E-03   0.0
+            18      G      0.0            0.0           -1.612023E-02  -5.839575E-02  -1.589014E-03   0.0
+            19      G      0.0            0.0           -1.509611E-02  -5.482522E-02  -2.066359E-03   0.0
+            20      G      0.0            0.0           -1.366544E-02  -4.993791E-02  -3.051698E-03   0.0
+            21      G      0.0            0.0           -1.129162E-02  -4.190527E-02  -5.363085E-03   0.0
+            22      G      0.0            0.0           -5.734961E-03  -2.254767E-02  -1.388159E-02   0.0
+            23      G      0.0            0.0           -6.078679E-02  -1.203720E-01   2.404490E-02   0.0
+            24      G      0.0            0.0           -6.960643E-02  -1.218501E-01   6.224541E-03   0.0
+            25      G      0.0            0.0           -7.103772E-02  -1.249389E-01  -1.034394E-03   0.0
+            26      G      0.0            0.0           -6.983013E-02  -1.229076E-01  -2.939812E-03   0.0
+            27      G      0.0            0.0           -6.770435E-02  -1.195660E-01  -4.249492E-03   0.0
+            28      G      0.0            0.0           -6.504833E-02  -1.151041E-01  -4.836089E-03   0.0
+            29      G      0.0            0.0           -6.195714E-02  -1.098599E-01  -5.785260E-03   0.0
+            30      G      0.0            0.0           -5.815511E-02  -1.033968E-01  -7.321545E-03   0.0
+            31      G      0.0            0.0           -5.303797E-02  -9.499062E-02  -1.030611E-02   0.0
+            32      G      0.0            0.0           -4.497399E-02  -8.252872E-02  -1.738350E-02   0.0
+            33      G      0.0            0.0           -3.063048E-02  -6.993433E-02  -3.137354E-02   0.0
+            34      G      0.0            0.0           -1.418510E-01  -1.779529E-01   2.277394E-02   0.0
+            35      G      0.0            0.0           -1.507740E-01  -1.768021E-01   7.774313E-03   0.0
+            36      G      0.0            0.0           -1.525134E-01  -1.748407E-01  -1.594081E-03   0.0
+            37      G      0.0            0.0           -1.501517E-01  -1.725588E-01  -6.199927E-03   0.0
+            38      G      0.0            0.0           -1.458531E-01  -1.679377E-01  -8.292883E-03   0.0
+            39      G      0.0            0.0           -1.404484E-01  -1.623163E-01  -1.001672E-02   0.0
+            40      G      0.0            0.0           -1.340324E-01  -1.554215E-01  -1.180804E-02   0.0
+            41      G      0.0            0.0           -1.262457E-01  -1.473358E-01  -1.470802E-02   0.0
+            42      G      0.0            0.0           -1.160706E-01  -1.373285E-01  -1.995608E-02   0.0
+            43      G      0.0            0.0           -1.016417E-01  -1.265785E-01  -2.908270E-02   0.0
+            44      G      0.0            0.0           -8.062634E-02  -1.149582E-01  -4.207793E-02   0.0
+            45      G      0.0            0.0           -2.524975E-01  -2.294788E-01   1.951662E-02   0.0
+            46      G      0.0            0.0           -2.596727E-01  -2.242923E-01   5.034911E-03   0.0
+            47      G      0.0            0.0           -2.598281E-01  -2.204232E-01  -4.212435E-03   0.0
+            48      G      0.0            0.0           -2.555667E-01  -2.157324E-01  -9.989053E-03   0.0
+            49      G      0.0            0.0           -2.485761E-01  -2.104359E-01  -1.352161E-02   0.0
+            50      G      0.0            0.0           -2.398079E-01  -2.037197E-01  -1.609348E-02   0.0
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    18
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+            51      G      0.0            0.0           -2.294389E-01  -1.961070E-01  -1.899591E-02   0.0
+            52      G      0.0            0.0           -2.170260E-01  -1.872589E-01  -2.306688E-02   0.0
+            53      G      0.0            0.0           -2.015260E-01  -1.777692E-01  -2.945319E-02   0.0
+            54      G      0.0            0.0           -1.813913E-01  -1.676876E-01  -3.871563E-02   0.0
+            55      G      0.0            0.0           -1.546150E-01  -1.583420E-01  -5.175549E-02   0.0
+            56      G      0.0            0.0           -3.890249E-01  -2.734711E-01   1.264587E-02   0.0
+            57      G      0.0            0.0           -3.927781E-01  -2.662107E-01   2.981761E-04   0.0
+            58      G      0.0            0.0           -3.901607E-01  -2.599385E-01  -8.862370E-03   0.0
+            59      G      0.0            0.0           -3.830218E-01  -2.540437E-01  -1.502301E-02   0.0
+            60      G      0.0            0.0           -3.727986E-01  -2.474604E-01  -1.935929E-02   0.0
+            61      G      0.0            0.0           -3.602656E-01  -2.403249E-01  -2.288595E-02   0.0
+            62      G      0.0            0.0           -3.456198E-01  -2.322344E-01  -2.656553E-02   0.0
+            63      G      0.0            0.0           -3.284593E-01  -2.236475E-01  -3.141699E-02   0.0
+            64      G      0.0            0.0           -3.078993E-01  -2.145920E-01  -3.807231E-02   0.0
+            65      G      0.0            0.0           -2.826243E-01  -2.058603E-01  -4.731138E-02   0.0
+            66      G      0.0            0.0           -2.510996E-01  -1.979230E-01  -5.907905E-02   0.0
+            67      G      0.0            0.0           -5.476141E-01  -3.109283E-01   4.369049E-03   0.0
+            68      G      0.0            0.0           -5.469064E-01  -3.019703E-01  -6.519923E-03   0.0
+            69      G      0.0            0.0           -5.405006E-01  -2.943742E-01  -1.483225E-02   0.0
+            70      G      0.0            0.0           -5.297871E-01  -2.871447E-01  -2.110122E-02   0.0
+            71      G      0.0            0.0           -5.158262E-01  -2.799713E-01  -2.584176E-02   0.0
+            72      G      0.0            0.0           -4.992714E-01  -2.723156E-01  -2.991713E-02   0.0
+            73      G      0.0            0.0           -4.802660E-01  -2.643664E-01  -3.415953E-02   0.0
+            74      G      0.0            0.0           -4.585036E-01  -2.560457E-01  -3.926359E-02   0.0
+            75      G      0.0            0.0           -4.332507E-01  -2.478687E-01  -4.595250E-02   0.0
+            76      G      0.0            0.0           -4.034805E-01  -2.401390E-01  -5.449455E-02   0.0
+            77      G      0.0            0.0           -3.679679E-01  -2.335489E-01  -6.526374E-02   0.0
+            78      G      0.0            0.0           -7.247887E-01  -3.421182E-01  -5.268227E-03   0.0
+            79      G      0.0            0.0           -7.189002E-01  -3.322336E-01  -1.438297E-02   0.0
+            80      G      0.0            0.0           -7.080592E-01  -3.236019E-01  -2.193265E-02   0.0
+            81      G      0.0            0.0           -6.932286E-01  -3.157062E-01  -2.786578E-02   0.0
+            82      G      0.0            0.0           -6.752121E-01  -3.079624E-01  -3.272106E-02   0.0
+            83      G      0.0            0.0           -6.544897E-01  -3.002732E-01  -3.703577E-02   0.0
+            84      G      0.0            0.0           -6.311925E-01  -2.924309E-01  -4.145223E-02   0.0
+            85      G      0.0            0.0           -6.050689E-01  -2.847063E-01  -4.659884E-02   0.0
+            86      G      0.0            0.0           -5.755595E-01  -2.772474E-01  -5.289120E-02   0.0
+            87      G      0.0            0.0           -5.418529E-01  -2.705462E-01  -6.074757E-02   0.0
+            88      G      0.0            0.0           -5.030047E-01  -2.649819E-01  -7.019604E-02   0.0
+            89      G      0.0            0.0           -9.173082E-01  -3.676339E-01  -1.542275E-02   0.0
+            90      G      0.0            0.0           -9.058440E-01  -3.572395E-01  -2.304695E-02   0.0
+            91      G      0.0            0.0           -8.901580E-01  -3.481391E-01  -2.960005E-02   0.0
+            92      G      0.0            0.0           -8.709040E-01  -3.397907E-01  -3.509709E-02   0.0
+            93      G      0.0            0.0           -8.486446E-01  -3.319202E-01  -3.976017E-02   0.0
+            94      G      0.0            0.0           -8.237453E-01  -3.242326E-01  -4.403663E-02   0.0
+            95      G      0.0            0.0           -7.962944E-01  -3.167787E-01  -4.839735E-02   0.0
+            96      G      0.0            0.0           -7.661118E-01  -3.095667E-01  -5.327819E-02   0.0
+            97      G      0.0            0.0           -7.327611E-01  -3.029014E-01  -5.909506E-02   0.0
+            98      G      0.0            0.0           -6.956257E-01  -2.970284E-01  -6.604162E-02   0.0
+            99      G      0.0            0.0           -6.539689E-01  -2.923528E-01  -7.432255E-02   0.0
+           100      G      0.0            0.0           -1.122219E+00  -3.879385E-01  -2.583741E-02   0.0
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    19
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           101      G      0.0            0.0           -1.105023E+00  -3.774840E-01  -3.196441E-02   0.0
+           102      G      0.0            0.0           -1.084320E+00  -3.682249E-01  -3.758767E-02   0.0
+           103      G      0.0            0.0           -1.060507E+00  -3.598276E-01  -4.245916E-02   0.0
+           104      G      0.0            0.0           -1.033974E+00  -3.519728E-01  -4.677786E-02   0.0
+           105      G      0.0            0.0           -1.004974E+00  -3.445580E-01  -5.080164E-02   0.0
+           106      G      0.0            0.0           -9.735790E-01  -3.374860E-01  -5.488380E-02   0.0
+           107      G      0.0            0.0           -9.396474E-01  -3.308931E-01  -5.937741E-02   0.0
+           108      G      0.0            0.0           -9.028555E-01  -3.249020E-01  -6.454496E-02   0.0
+           109      G      0.0            0.0           -8.627286E-01  -3.197969E-01  -7.062686E-02   0.0
+           110      G      0.0            0.0           -8.187013E-01  -3.158283E-01  -7.769103E-02   0.0
+           111      G      0.0            0.0           -1.336837E+00  -4.035658E-01  -3.606444E-02   0.0
+           112      G      0.0            0.0           -1.313963E+00  -3.933635E-01  -4.088308E-02   0.0
+           113      G      0.0            0.0           -1.288253E+00  -3.842946E-01  -4.553656E-02   0.0
+           114      G      0.0            0.0           -1.259912E+00  -3.760618E-01  -4.975539E-02   0.0
+           115      G      0.0            0.0           -1.229186E+00  -3.684883E-01  -5.358550E-02   0.0
+           116      G      0.0            0.0           -1.196254E+00  -3.614191E-01  -5.721828E-02   0.0
+           117      G      0.0            0.0           -1.161160E+00  -3.548617E-01  -6.089735E-02   0.0
+           118      G      0.0            0.0           -1.123803E+00  -3.488390E-01  -6.487021E-02   0.0
+           119      G      0.0            0.0           -1.083936E+00  -3.435169E-01  -6.937322E-02   0.0
+           120      G      0.0            0.0           -1.041203E+00  -3.390559E-01  -7.454559E-02   0.0
+           121      G      0.0            0.0           -9.951655E-01  -3.356895E-01  -8.052094E-02   0.0
+           122      G      0.0            0.0           -1.558763E+00  -4.150190E-01  -4.587433E-02   0.0
+           123      G      0.0            0.0           -1.530428E+00  -4.053552E-01  -4.947873E-02   0.0
+           124      G      0.0            0.0           -1.499877E+00  -3.967079E-01  -5.324248E-02   0.0
+           125      G      0.0            0.0           -1.467166E+00  -3.888872E-01  -5.676204E-02   0.0
+           126      G      0.0            0.0           -1.432437E+00  -3.817245E-01  -6.005278E-02   0.0
+           127      G      0.0            0.0           -1.395801E+00  -3.751512E-01  -6.320512E-02   0.0
+           128      G      0.0            0.0           -1.357291E+00  -3.691225E-01  -6.639328E-02   0.0
+           129      G      0.0            0.0           -1.316829E+00  -3.637054E-01  -6.980685E-02   0.0
+           130      G      0.0            0.0           -1.274233E+00  -3.589807E-01  -7.360530E-02   0.0
+           131      G      0.0            0.0           -1.229230E+00  -3.551059E-01  -7.793513E-02   0.0
+           132      G      0.0            0.0           -1.181482E+00  -3.522332E-01  -8.287278E-02   0.0
+           133      G      0.0            0.0           -1.785876E+00  -4.228289E-01  -5.500123E-02   0.0
+           134      G      0.0            0.0           -1.752434E+00  -4.139140E-01  -5.756013E-02   0.0
+           135      G      0.0            0.0           -1.717332E+00  -4.059035E-01  -6.048475E-02   0.0
+           136      G      0.0            0.0           -1.680517E+00  -3.986476E-01  -6.333697E-02   0.0
+           137      G      0.0            0.0           -1.642049E+00  -3.920494E-01  -6.605846E-02   0.0
+           138      G      0.0            0.0           -1.601996E+00  -3.860317E-01  -6.869602E-02   0.0
+           139      G      0.0            0.0           -1.560375E+00  -3.805940E-01  -7.136290E-02   0.0
+           140      G      0.0            0.0           -1.517130E+00  -3.757563E-01  -7.419170E-02   0.0
+           141      G      0.0            0.0           -1.472124E+00  -3.716075E-01  -7.731828E-02   0.0
+           142      G      0.0            0.0           -1.425151E+00  -3.682435E-01  -8.084238E-02   0.0
+           143      G      0.0            0.0           -1.375945E+00  -3.657950E-01  -8.486265E-02   0.0
+           144      G      0.0            0.0           -2.016343E+00  -4.275259E-01  -6.328315E-02   0.0
+           145      G      0.0            0.0           -1.978253E+00  -4.195325E-01  -6.493551E-02   0.0
+           146      G      0.0            0.0           -1.938989E+00  -4.123048E-01  -6.712541E-02   0.0
+           147      G      0.0            0.0           -1.898416E+00  -4.057542E-01  -6.934757E-02   0.0
+           148      G      0.0            0.0           -1.856538E+00  -3.998020E-01  -7.152250E-02   0.0
+           149      G      0.0            0.0           -1.813390E+00  -3.944137E-01  -7.364570E-02   0.0
+           150      G      0.0            0.0           -1.768981E+00  -3.895731E-01  -7.579140E-02   0.0
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    20
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           151      G      0.0            0.0           -1.723269E+00  -3.853173E-01  -7.805798E-02   0.0
+           152      G      0.0            0.0           -1.676154E+00  -3.816970E-01  -8.054340E-02   0.0
+           153      G      0.0            0.0           -1.627477E+00  -3.787983E-01  -8.334498E-02   0.0
+           154      G      0.0            0.0           -1.577028E+00  -3.767092E-01  -8.653701E-02   0.0
+           155      G      0.0            0.0           -2.248624E+00  -4.296596E-01  -7.057072E-02   0.0
+           156      G      0.0            0.0           -2.206427E+00  -4.227051E-01  -7.148709E-02   0.0
+           157      G      0.0            0.0           -2.163460E+00  -4.163737E-01  -7.304341E-02   0.0
+           158      G      0.0            0.0           -2.119535E+00  -4.106087E-01  -7.471382E-02   0.0
+           159      G      0.0            0.0           -2.074618E+00  -4.053712E-01  -7.638530E-02   0.0
+           160      G      0.0            0.0           -2.028723E+00  -4.006326E-01  -7.802893E-02   0.0
+           161      G      0.0            0.0           -1.981853E+00  -3.964003E-01  -7.968549E-02   0.0
+           162      G      0.0            0.0           -1.933983E+00  -3.926966E-01  -8.142477E-02   0.0
+           163      G      0.0            0.0           -1.885038E+00  -3.895740E-01  -8.333099E-02   0.0
+           164      G      0.0            0.0           -1.834896E+00  -3.870897E-01  -8.548134E-02   0.0
+           165      G      0.0            0.0           -1.783389E+00  -3.853147E-01  -8.795824E-02   0.0
+           166      G      0.0            0.0           -2.481481E+00  -4.297857E-01  -7.677716E-02   0.0
+           167      G      0.0            0.0           -2.435768E+00  -4.239476E-01  -7.712184E-02   0.0
+           168      G      0.0            0.0           -2.389605E+00  -4.185731E-01  -7.817236E-02   0.0
+           169      G      0.0            0.0           -2.342771E+00  -4.136438E-01  -7.938119E-02   0.0
+           170      G      0.0            0.0           -2.295209E+00  -4.091371E-01  -8.062390E-02   0.0
+           171      G      0.0            0.0           -2.246920E+00  -4.050517E-01  -8.184433E-02   0.0
+           172      G      0.0            0.0           -2.197914E+00  -4.013997E-01  -8.306167E-02   0.0
+           173      G      0.0            0.0           -2.148177E+00  -3.982174E-01  -8.432859E-02   0.0
+           174      G      0.0            0.0           -2.097660E+00  -3.955459E-01  -8.571508E-02   0.0
+           175      G      0.0            0.0           -2.046269E+00  -3.934357E-01  -8.729980E-02   0.0
+           176      G      0.0            0.0           -1.993864E+00  -3.919347E-01  -8.915665E-02   0.0
+           177      G      0.0            0.0           -2.713981E+00  -4.284733E-01  -8.184666E-02   0.0
+           178      G      0.0            0.0           -2.665375E+00  -4.237816E-01  -8.179685E-02   0.0
+           179      G      0.0            0.0           -2.616546E+00  -4.193870E-01  -8.247737E-02   0.0
+           180      G      0.0            0.0           -2.567257E+00  -4.152896E-01  -8.334107E-02   0.0
+           181      G      0.0            0.0           -2.517443E+00  -4.114952E-01  -8.424652E-02   0.0
+           182      G      0.0            0.0           -2.467105E+00  -4.080189E-01  -8.511930E-02   0.0
+           183      G      0.0            0.0           -2.416264E+00  -4.048989E-01  -8.595950E-02   0.0
+           184      G      0.0            0.0           -2.364929E+00  -4.021802E-01  -8.680956E-02   0.0
+           185      G      0.0            0.0           -2.313072E+00  -3.999111E-01  -8.774075E-02   0.0
+           186      G      0.0            0.0           -2.260623E+00  -3.981312E-01  -8.883158E-02   0.0
+           187      G      0.0            0.0           -2.207464E+00  -3.968740E-01  -9.016532E-02   0.0
+           188      G      0.0            0.0           -2.945500E+00  -4.262979E-01  -8.576168E-02   0.0
+           189      G      0.0            0.0           -2.894630E+00  -4.227479E-01  -8.550638E-02   0.0
+           190      G      0.0            0.0           -2.843662E+00  -4.192997E-01  -8.597189E-02   0.0
+           191      G      0.0            0.0           -2.792360E+00  -4.159851E-01  -8.662498E-02   0.0
+           192      G      0.0            0.0           -2.740661E+00  -4.128257E-01  -8.730568E-02   0.0
+           193      G      0.0            0.0           -2.688582E+00  -4.098743E-01  -8.791463E-02   0.0
+           194      G      0.0            0.0           -2.636173E+00  -4.071982E-01  -8.844000E-02   0.0
+           195      G      0.0            0.0           -2.583470E+00  -4.048666E-01  -8.892602E-02   0.0
+           196      G      0.0            0.0           -2.530476E+00  -4.029359E-01  -8.945077E-02   0.0
+           197      G      0.0            0.0           -2.477138E+00  -4.014433E-01  -9.011155E-02   0.0
+           198      G      0.0            0.0           -2.423351E+00  -4.004072E-01  -9.099777E-02   0.0
+           199      G      0.0            0.0           -3.175735E+00  -4.238654E-01  -8.855903E-02   0.0
+           200      G      0.0            0.0           -3.123211E+00  -4.213874E-01  -8.828103E-02   0.0
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    21
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ 
+                                             D I S P L A C E M E N T   V E C T O R
+ 
+      POINT ID.   TYPE          T1             T2             T3             R1             R2             R3
+           201      G      0.0            0.0           -3.070602E+00  -4.188124E-01  -8.871881E-02   0.0
+           202      G      0.0            0.0           -3.017679E+00  -4.161519E-01  -8.932648E-02   0.0
+           203      G      0.0            0.0           -2.964403E+00  -4.134851E-01  -8.990205E-02   0.0
+           204      G      0.0            0.0           -2.910834E+00  -4.109229E-01  -9.032532E-02   0.0
+           205      G      0.0            0.0           -2.857065E+00  -4.085701E-01  -9.059351E-02   0.0
+           206      G      0.0            0.0           -2.803177E+00  -4.065186E-01  -9.075110E-02   0.0
+           207      G      0.0            0.0           -2.749207E+00  -4.048471E-01  -9.089881E-02   0.0
+           208      G      0.0            0.0           -2.695126E+00  -4.035995E-01  -9.116192E-02   0.0
+           209      G      0.0            0.0           -2.640829E+00  -4.027677E-01  -9.166708E-02   0.0
+           210      G      0.0            0.0           -3.404705E+00  -4.217515E-01  -9.023566E-02   0.0
+           211      G      0.0            0.0           -3.351107E+00  -4.203122E-01  -9.021884E-02   0.0
+           212      G      0.0            0.0           -3.297281E+00  -4.184002E-01  -9.086911E-02   0.0
+           213      G      0.0            0.0           -3.243033E+00  -4.161605E-01  -9.161474E-02   0.0
+           214      G      0.0            0.0           -3.188393E+00  -4.137764E-01  -9.217986E-02   0.0
+           215      G      0.0            0.0           -3.133496E+00  -4.114234E-01  -9.248659E-02   0.0
+           216      G      0.0            0.0           -3.078501E+00  -4.092381E-01  -9.253004E-02   0.0
+           217      G      0.0            0.0           -3.023546E+00  -4.073389E-01  -9.238264E-02   0.0
+           218      G      0.0            0.0           -2.968715E+00  -4.058226E-01  -9.214877E-02   0.0
+           219      G      0.0            0.0           -2.914007E+00  -4.047574E-01  -9.200959E-02   0.0
+           220      G      0.0            0.0           -2.859316E+00  -4.041494E-01  -9.214239E-02   0.0
+           221      G      0.0            0.0           -3.632837E+00  -4.208907E-01  -9.097850E-02   0.0
+           222      G      0.0            0.0           -3.578626E+00  -4.200671E-01  -9.153121E-02   0.0
+           223      G      0.0            0.0           -3.523846E+00  -4.184436E-01  -9.272456E-02   0.0
+           224      G      0.0            0.0           -3.468412E+00  -4.162826E-01  -9.369952E-02   0.0
+           225      G      0.0            0.0           -3.412494E+00  -4.139286E-01  -9.433628E-02   0.0
+           226      G      0.0            0.0           -3.356325E+00  -4.115660E-01  -9.455228E-02   0.0
+           227      G      0.0            0.0           -3.300148E+00  -4.093719E-01  -9.438640E-02   0.0
+           228      G      0.0            0.0           -3.244170E+00  -4.074812E-01  -9.392121E-02   0.0
+           229      G      0.0            0.0           -3.188528E+00  -4.059965E-01  -9.329974E-02   0.0
+           230      G      0.0            0.0           -3.133273E+00  -4.050341E-01  -9.267701E-02   0.0
+           231      G      0.0            0.0           -3.078298E+00  -4.045968E-01  -9.242350E-02   0.0
+ *** USER INFORMATION MESSAGE 3 (crdb::nastran::Processor::writeOutput)
+ *** USER INFORMATION MESSAGE  (WRITE DATA BLOCK OUG1, TRAILER[101, 0, 1848, 0, 0, 0, 1])
+1    EXAMPLE HA145E: HALF SPAN 15-DEG SWEPT UNTAPERED WING  HA145E         NOVEMBER  28, 2024  MSC Nastran  9/18/23   PAGE    22
+                                                                                                                                    
+0                                                                                                            SUBCASE 1              
+ * * * *  D B D I C T   P R I N T  * * * *      SUBDMAP = PRTSUM  ,  DMAP STATEMENT NO.     74
+
+
+
+0                                   * * * *  A N A L Y S I S  S U M M A R Y  T A B L E  * * * *
+0 SEID  PEID PROJ VERS APRCH      SEMG SEMR SEKR SELG SELR MODES DYNRED SOLLIN SOLNL LOOPID DESIGN CYCLE SENSITIVITY
+ -------------------------------------------------------------------------------------------------------------------
+     0     0    1    1 '        '    T    T    T    T    T     F      F      T     F     -1            0           F
+0SEID = SUPERELEMENT ID.
+ PEID = PRIMARY SUPERELEMENT ID OF IMAGE SUPERELEMENT.
+ PROJ = PROJECT ID NUMBER.
+ VERS = VERSION ID.
+ APRCH = BLANK FOR STRUCTURAL ANALYSIS.  HEAT FOR HEAT TRANSFER ANALYSIS.
+ SEMG = STIFFNESS AND MASS MATRIX GENERATION STEP.
+ SEMR = MASS MATRIX REDUCTION STEP (INCLUDES EIGENVALUE SOLUTION FOR MODES).
+ SEKR = STIFFNESS MATRIX REDUCTION STEP.
+ SELG = LOAD MATRIX GENERATION STEP.
+ SELR = LOAD MATRIX REDUCTION STEP. 
+ MODES = T (TRUE) IF NORMAL MODES OR BUCKLING MODES CALCULATED.
+ DYNRED = T (TRUE) MEANS GENERALIZED DYNAMIC AND/OR COMPONENT MODE REDUCTION PERFORMED.
+ SOLLIN = T (TRUE) IF LINEAR SOLUTION EXISTS IN DATABASE.
+ LOOPID = THE LAST LOOPID VALUE USED IN THE NONLINEAR ANALYSIS.  USEFUL FOR RESTARTS.
+ SOLNL = T (TRUE) IF NONLINEAR SOLUTION EXISTS IN DATABASE.
+ DESIGN CYCLE = THE LAST DESIGN CYCLE (ONLY VALID IN OPTIMIZATION).
+ SENSITIVITY = SENSITIVITY MATRIX GENERATION FLAG.
+ 
+ No PARAM values were set in the Control File.
+ 
+1                                        * * * END OF JOB * * *
+ 
+ 
+ No Symbolic Replacement variables or values were specified.
+
