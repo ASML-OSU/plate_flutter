@@ -15,7 +15,7 @@ Here is the paper link: https://arc.aiaa.org/doi/abs/10.2514/6.2025-0418
 
 
 # Work on flutter of thin metal plate model and EPS foam model:
-- Experiments for flat plate model can be found in https://arc.aiaa.org/doi/10.2514/6.2021-1497
+- **Experiments for flat plate model can be found in https://arc.aiaa.org/doi/10.2514/6.2021-1497**
   
         @inproceedings{miglani2021analysis,
           title={Analysis, design, and experiments of metal flat plate and foam airfoil flutter test articles},
@@ -25,8 +25,11 @@ Here is the paper link: https://arc.aiaa.org/doi/abs/10.2514/6.2025-0418
           year={2021}
         }
 
+    Note: the flat plate model was inspired from Prof. Dowell's team's model, given in https://arc.aiaa.org/doi/10.2514/6.2019-1862
+
+
   
-- Tightly Coupled Geometrically Nonlinear Structural and Aeroelastic Analysis of Flexible Wing Plate Model: https://arc.aiaa.org/doi/abs/10.2514/6.2025-0418
+- **Tightly Coupled Geometrically Nonlinear Structural and Aeroelastic Analysis of Flexible Wing Plate Model: https://arc.aiaa.org/doi/abs/10.2514/6.2025-0418**
 
         @inproceedings{zhao2025tightly, 
         title={Tightly Coupled Geometrically Nonlinear Structural and Aeroelastic Analysis of Flexible Wing Plate Model},
@@ -38,7 +41,7 @@ Here is the paper link: https://arc.aiaa.org/doi/abs/10.2514/6.2025-0418
         doi = {10.2514/6.2025-0418}
         }
 
-- Development of a low-cost flutter test bed with an EPS foam model for preliminary wing design, https://www.sciencedirect.com/science/article/pii/S1270963824003043
+- **Development of a low-cost flutter test bed with an EPS foam model for preliminary wing design, https://www.sciencedirect.com/science/article/pii/S1270963824003043**
 
           @article{sanmugadas2024development,
           title={Development of a low-cost flutter test bed with an EPS foam model for preliminary wing design},
